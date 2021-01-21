@@ -1,6 +1,5 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
-import { ConsumerDashboardComponent } from './_modules/consumer/consumer-dashboard.component/dashboarddemo.component';
 import { SampleDemoComponent } from './demo/view/sampledemo.component';
 import { FormsDemoComponent } from './demo/view/formsdemo.component';
 import { DataDemoComponent } from './demo/view/datademo.component';
@@ -22,7 +21,14 @@ import { RegistrationComponent } from './startup/registration/registration.compo
 
 
 export const routes: Routes = [
-    { path: 'dashboard', component: ConsumerDashboardComponent,
+
+    {path: 'notfound', component: AppNotfoundComponent},
+    {path: 'login', component: AppLoginComponent},
+    {path: 'register',component:RegistrationComponent},
+    {path: 'error', component: AppErrorComponent},
+    {path: 'accessdenied', component: AppAccessdeniedComponent},
+    {path: 'notfound', component: AppNotfoundComponent},
+    { path: 'dashboard', component: SampleDemoComponent,
         children: [
             //{ path: 'dashboard', component: DashboardDemoComponent },
             { path: 'components/sample', component: SampleDemoComponent },
@@ -54,13 +60,8 @@ export const routes: Routes = [
         path:"pharmacy-dashboard",
         loadChildren: () => import('./_modules/pharmacy/pharmacy.module').then(mod => mod.PharmacyModule)
     },
-    
-    {path: 'login', component: AppLoginComponent},
-    {path: 'register',component:RegistrationComponent},
-    {path: 'error', component: AppErrorComponent},
-    {path: 'accessdenied', component: AppAccessdeniedComponent},
-    {path: 'notfound', component: AppNotfoundComponent},
     {path: '**', redirectTo: '/login'},
+    
 
 ];
 

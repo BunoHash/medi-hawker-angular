@@ -17,6 +17,7 @@ export class AppLoginComponent {
 
   username: string = '';
   password: string = '';  
+  loaderVisible: boolean = false;
 
   constructor(private authService:AuthService,
               private router:Router,
@@ -29,14 +30,19 @@ export class AppLoginComponent {
     let obj = new LoginModel();
     obj.Username = this.username;
     obj.Password = this.password;
+    this.loaderVisible = true;
 
     this.authService.login(obj).subscribe(data=>{
         console.log(data);
         if(data){
           localStorage.setItem('token',data);
           this.alertifyService.success(LoginMessageEN.LOGIN_SUCCESS_EN);
+
+          this.hideLoader();
+          this.routeToDefaultModule();
         }
         else{
+          this.hideLoader();
           this.clearLoginForm();
           this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
           this.router.navigate(['/login']);
@@ -44,9 +50,16 @@ export class AppLoginComponent {
         
     }, error =>{
       this.clearLoginForm();
+      this.hideLoader();
       this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
       this.router.navigate(['/login']);
     });
+  }
+  hideLoader() {
+    this.loaderVisible = false;
+  }
+  routeToDefaultModule() {
+    this.router.navigate(['/consumer-dashboard']);
   }
 
   clearLoginForm(){

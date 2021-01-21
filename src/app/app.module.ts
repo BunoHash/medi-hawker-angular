@@ -88,7 +88,6 @@ import {AppTopBarComponent} from './pages/app.topbar/app.topbar.component';
 import {AppFooterComponent} from './pages/app.footer/app.footer.component';
 
 // Demo pages
-import {ConsumerDashboardComponent} from './_modules/consumer/consumer-dashboard.component/dashboarddemo.component';
 import {SampleDemoComponent} from './demo/view/sampledemo.component';
 import {FormsDemoComponent} from './demo/view/formsdemo.component';
 import {DataDemoComponent} from './demo/view/datademo.component';
@@ -215,7 +214,6 @@ export const jwtConfig = {
         AppErrorComponent,
         AppAccessdeniedComponent,
         AppLoginComponent,
-        ConsumerDashboardComponent,
         SampleDemoComponent,
         FormsDemoComponent,
         DataDemoComponent,
