@@ -5,7 +5,6 @@ import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell
     selector: 'app-topbar',
 	template: `
 	
-	<a routerLink="/consumer-dashboard">link</a>
         <div class="layout-topbar">
 			<div class="layout-topbar-wrapper">
                 <div class="layout-topbar-left">
