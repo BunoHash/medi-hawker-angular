@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AppMainComponent} from '../app.main/app.main.component';
+import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell/consumer-shell.component';
 
 @Component({
     selector: 'app-topbar',
@@ -365,7 +365,7 @@ export class AppTopBarComponent {
 
     activeItem: number;
 
-    constructor(public app: AppMainComponent) {}
+    constructor(public app: ConsumerShellComponent) {}
 
     mobileMegaMenuItemClick(index) {
         this.app.megaMenuMobileClick = true;

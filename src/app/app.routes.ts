@@ -47,7 +47,7 @@ export const routes: Routes = [
     },
     //{path:'consumer-dashboard', loadChildren: './app/_modules/consumer/consumer.module#ConsumerModule'},
     {
-        path: 'consumer-dashboard',
+        path: 'consumer',
         loadChildren: () => import('./_modules/consumer/consumer.module').then(mod => mod.ConsumerModule),
     },
     

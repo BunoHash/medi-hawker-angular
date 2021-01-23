@@ -31,35 +31,37 @@ export class AppLoginComponent {
     obj.Username = this.username;
     obj.Password = this.password;
     this.loaderVisible = true;
+    this.routeToDefaultModule();
 
-    this.authService.login(obj).subscribe(data=>{
-        console.log(data);
-        if(data){
-          localStorage.setItem('token',data);
-          this.alertifyService.success(LoginMessageEN.LOGIN_SUCCESS_EN);
 
-          this.hideLoader();
-          this.routeToDefaultModule();
-        }
-        else{
-          this.hideLoader();
-          this.clearLoginForm();
-          this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
-          this.router.navigate(['/login']);
-        }
+    // this.authService.login(obj).subscribe(data=>{
+    //     console.log(data);
+    //     if(data){
+    //       localStorage.setItem('token',data);
+    //       this.alertifyService.success(LoginMessageEN.LOGIN_SUCCESS_EN);
+
+    //       this.hideLoader();
+    //       this.routeToDefaultModule();
+    //     }
+    //     else{
+    //       this.hideLoader();
+    //       this.clearLoginForm();
+    //       this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
+    //       this.router.navigate(['/login']);
+    //     }
         
-    }, error =>{
-      this.clearLoginForm();
-      this.hideLoader();
-      this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
-      this.router.navigate(['/login']);
-    });
+    // }, error =>{
+    //   this.clearLoginForm();
+    //   this.hideLoader();
+    //   this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
+    //   this.router.navigate(['/login']);
+    // });
   }
-  hideLoader() {
+  hideLoader() {  
     this.loaderVisible = false;
   }
   routeToDefaultModule() {
-    this.router.navigate(['/consumer-dashboard']);
+    this.router.navigate(['/consumer']);
   }
 
   clearLoginForm(){

@@ -79,13 +79,7 @@ import {AppMainComponent} from './pages/app.main/app.main.component';
 import {AppNotfoundComponent} from './pages/app.notfound/app.notfound.component';
 import {AppErrorComponent} from './pages/app.error/app.error.component';
 import {AppAccessdeniedComponent} from './pages/app.accessdenied/app.accessdenied.component';
-import {AppMenuComponent} from './pages/app.menu/app.menu.component';
-import {AppMenuitemComponent} from './pages/app.menuitem/app.menuitem.component';
-import {AppBreadcrumbComponent} from './pages/app.breadcrumb/app.breadcrumb.component';
-import {AppConfigComponent} from './pages/app.config/app.config.component';
-import {AppRightPanelComponent} from './pages/app.rightpanel/app.rightpanel.component';
-import {AppTopBarComponent} from './pages/app.topbar/app.topbar.component';
-import {AppFooterComponent} from './pages/app.footer/app.footer.component';
+
 
 // Demo pages
 import {SampleDemoComponent} from './demo/view/sampledemo.component';
@@ -202,14 +196,8 @@ export const jwtConfig = {
     ],
     declarations: [
         AppComponent,
-        AppMainComponent,
-        AppMenuComponent,
-        AppMenuitemComponent,
-        AppTopBarComponent,
-        AppFooterComponent,
-        AppRightPanelComponent,
-        AppConfigComponent,
-        AppBreadcrumbComponent,
+        
+        
         AppNotfoundComponent,
         AppErrorComponent,
         AppAccessdeniedComponent,

@@ -1,5 +1,5 @@
 import {Component, Inject, forwardRef} from '@angular/core';
-import {AppMainComponent} from '../app.main/app.main.component';
+import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell/consumer-shell.component';
 
 @Component({
     selector: 'app-rightpanel',
@@ -174,5 +174,5 @@ import {AppMainComponent} from '../app.main/app.main.component';
     `
 })
 export class AppRightPanelComponent {
-    constructor(public app: AppMainComponent) {}
+    constructor(public app: ConsumerShellComponent) {}
 }
