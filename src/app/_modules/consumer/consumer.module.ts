@@ -36,6 +36,10 @@ import { AppRightPanelComponent } from 'src/app/pages/app.rightpanel/app.rightpa
 import { AppFooterComponent } from 'src/app/pages/app.footer/app.footer.component';
 import { AppConfigComponent } from 'src/app/pages/app.config/app.config.component';
 import { AppBreadcrumbComponent } from 'src/app/pages/app.breadcrumb/app.breadcrumb.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { ProductCardComponent } from './product/product-card/product-card.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
 
 
 
@@ -124,7 +128,11 @@ import { AppBreadcrumbComponent } from 'src/app/pages/app.breadcrumb/app.breadcr
     AppFooterComponent,
     AppRightPanelComponent,
     AppBreadcrumbComponent,
-    AppConfigComponent],
+    AppConfigComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    AddProductComponent,
+    ProductCardComponent],
   providers:[CarService, BreadcrumbService, EventService],
   bootstrap: [ConsumerShellComponent]
 })

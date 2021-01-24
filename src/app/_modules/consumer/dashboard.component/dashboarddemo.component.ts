@@ -6,7 +6,7 @@ import {SelectItem} from 'primeng/api';
 import {BreadcrumbService} from '../../../pages/app.breadcrumb/breadcrumb.service';
 
 @Component({
-    selector: 'dashboard-com',
+    selector: 'old-dashboard',
     templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
