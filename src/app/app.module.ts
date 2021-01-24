@@ -196,25 +196,7 @@ export const jwtConfig = {
     ],
     declarations: [
         AppComponent,
-        
-        
-        AppNotfoundComponent,
-        AppErrorComponent,
-        AppAccessdeniedComponent,
         AppLoginComponent,
-        SampleDemoComponent,
-        FormsDemoComponent,
-        DataDemoComponent,
-        PanelsDemoComponent,
-        OverlaysDemoComponent,
-        MenusDemoComponent,
-        MessagesDemoComponent,
-        MessagesDemoComponent,
-        MiscDemoComponent,
-        ChartsDemoComponent,
-        EmptyDemoComponent,
-        FileDemoComponent,
-        DocumentationComponent,
         RegistrationComponent,
         
 
