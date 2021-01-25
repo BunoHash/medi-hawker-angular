@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
 import { routes } from './consumer.route';
-import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { EditorModule } from 'primeng/editor';
 import { CardModule } from 'primeng/card';
@@ -28,6 +28,8 @@ import { BreadcrumbService } from 'src/app/pages/app.breadcrumb/breadcrumb.servi
 import { EventService } from 'src/app/demo/service/eventservice';
 import { HttpClientModule } from '@angular/common/http';
 import { ConsumerRegistrationComponent } from './consumer-registration/consumer-registration.component';
+
+
 
 
 
@@ -106,16 +108,17 @@ import { ConsumerRegistrationComponent } from './consumer-registration/consumer-
     TreeModule,
     TreeTableModule,
     VirtualScrollerModule,
+    CardModule,
     RouterModule.forChild(routes)
   ],
 
-  declarations: [ ConsumerDashboardComponent, DashboardComponent, ConsumerRegistrationComponent],
-  providers:[CarService, BreadcrumbService, EventService],
+  declarations: [ConsumerDashboardComponent, DashboardComponent, ConsumerRegistrationComponent],
+  providers: [CarService, BreadcrumbService, EventService],
   bootstrap: [ConsumerDashboardComponent]
 })
-export class ConsumerModule { 
+export class ConsumerModule {
 
-  constructor(){
+  constructor() {
     console.log("Consumer Module initiated!");
   }
 }
