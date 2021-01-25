@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {AppMainComponent} from '../app.main/app.main.component';
+import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell/consumer-shell.component';
 
 @Component({
     selector: 'app-config',
@@ -125,7 +125,7 @@ export class AppConfigComponent implements OnInit {
 
     componentThemes: any;
 
-    constructor(public app: AppMainComponent) {
+    constructor(public app: ConsumerShellComponent) {
     }
 
     ngOnInit() {

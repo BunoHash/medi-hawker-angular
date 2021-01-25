@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginMessageEN } from 'src/app/messages/login.messages';
 import { LoginModel } from 'src/app/_models/auth/login.model';
@@ -9,7 +9,7 @@ import { AuthService } from 'src/app/_services/auth/auth.service';
   selector: 'app-login',
   templateUrl: './app.login.component.html',
 })
-export class AppLoginComponent {
+export class AppLoginComponent implements OnInit {
 
   dark: boolean;
 
@@ -24,6 +24,9 @@ export class AppLoginComponent {
               private alertifyService:AlertifyService){
 
   }
+  ngOnInit(): void {
+    this.dark = true;
+  }
 
   login(){
 
@@ -31,6 +34,8 @@ export class AppLoginComponent {
     obj.Username = this.username;
     obj.Password = this.password;
     this.loaderVisible = true;
+    //this.routeToDefaultModule();
+
 
     this.authService.login(obj).subscribe(data=>{
         console.log(data);
@@ -55,11 +60,11 @@ export class AppLoginComponent {
       this.router.navigate(['/login']);
     });
   }
-  hideLoader() {
+  hideLoader() {  
     this.loaderVisible = false;
   }
   routeToDefaultModule() {
-    this.router.navigate(['/consumer-dashboard']);
+    this.router.navigate(['/consumer']);
   }
 
   clearLoginForm(){

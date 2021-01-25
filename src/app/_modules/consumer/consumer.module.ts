@@ -28,6 +28,18 @@ import { BreadcrumbService } from 'src/app/pages/app.breadcrumb/breadcrumb.servi
 import { EventService } from 'src/app/demo/service/eventservice';
 import { HttpClientModule } from '@angular/common/http';
 import { ConsumerRegistrationComponent } from './consumer-registration/consumer-registration.component';
+import { ConsumerShellComponent } from './consumer-shell/consumer-shell.component';
+import { AppMenuComponent } from 'src/app/pages/app.menu/app.menu.component';
+import { AppMenuitemComponent } from 'src/app/pages/app.menuitem/app.menuitem.component';
+import { AppTopBarComponent } from 'src/app/pages/app.topbar/app.topbar.component';
+import { AppRightPanelComponent } from 'src/app/pages/app.rightpanel/app.rightpanel.component';
+import { AppFooterComponent } from 'src/app/pages/app.footer/app.footer.component';
+import { AppConfigComponent } from 'src/app/pages/app.config/app.config.component';
+import { AppBreadcrumbComponent } from 'src/app/pages/app.breadcrumb/app.breadcrumb.component';
+import { ProductDetailComponent } from './product/product-detail/product-detail.component';
+import { AddProductComponent } from './product/add-product/add-product.component';
+import { ProductCardComponent } from './product/product-card/product-card.component';
+import { ProductListComponent } from './product/product-list/product-list.component';
 
 
 
@@ -111,10 +123,20 @@ import { ConsumerRegistrationComponent } from './consumer-registration/consumer-
     CardModule,
     RouterModule.forChild(routes)
   ],
-
-  declarations: [ConsumerDashboardComponent, DashboardComponent, ConsumerRegistrationComponent],
+  declarations: [ConsumerShellComponent, ConsumerDashboardComponent, DashboardComponent, ConsumerRegistrationComponent,
+    AppMenuComponent,
+    AppMenuitemComponent,
+    AppTopBarComponent,
+    AppFooterComponent,
+    AppRightPanelComponent,
+    AppBreadcrumbComponent,
+    AppConfigComponent,
+    ProductListComponent,
+    ProductDetailComponent,
+    AddProductComponent,
+    ProductCardComponent],
   providers: [CarService, BreadcrumbService, EventService],
-  bootstrap: [ConsumerDashboardComponent]
+  bootstrap: [ConsumerShellComponent]
 })
 export class ConsumerModule {
 

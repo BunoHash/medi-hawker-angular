@@ -22,32 +22,12 @@ import { RegistrationComponent } from './startup/registration/registration.compo
 
 export const routes: Routes = [
 
-    {path: 'notfound', component: AppNotfoundComponent},
+    
     {path: 'login', component: AppLoginComponent},
     {path: 'register',component:RegistrationComponent},
-    {path: 'error', component: AppErrorComponent},
-    {path: 'accessdenied', component: AppAccessdeniedComponent},
-    {path: 'notfound', component: AppNotfoundComponent},
-    { path: 'dashboard', component: SampleDemoComponent,
-        children: [
-            //{ path: 'dashboard', component: DashboardDemoComponent },
-            { path: 'components/sample', component: SampleDemoComponent },
-            { path: 'components/forms', component: FormsDemoComponent },
-            { path: 'components/data', component: DataDemoComponent },
-            { path: 'components/panels', component: PanelsDemoComponent },
-            { path: 'components/overlays', component: OverlaysDemoComponent },
-            { path: 'components/menus', component: MenusDemoComponent },
-            { path: 'components/messages', component: MessagesDemoComponent },
-            { path: 'components/misc', component: MiscDemoComponent },
-            { path: 'pages/empty', component: EmptyDemoComponent },
-            { path: 'components/charts', component: ChartsDemoComponent },
-            { path: 'components/file', component: FileDemoComponent },
-            { path: 'documentation', component: DocumentationComponent }
-        ]
-    },
     //{path:'consumer-dashboard', loadChildren: './app/_modules/consumer/consumer.module#ConsumerModule'},
     {
-        path: 'consumer-dashboard',
+        path: 'consumer',
         loadChildren: () => import('./_modules/consumer/consumer.module').then(mod => mod.ConsumerModule),
     },
     
