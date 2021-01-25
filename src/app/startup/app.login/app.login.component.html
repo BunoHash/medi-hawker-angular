@@ -2,8 +2,8 @@
 
     <div class="login-content">
         <div class="night-switch">
-            <p-button styleClass="dark-switch"  icon="pi pi-circle-on" (click)="dark = true"></p-button>
-            <p-button styleClass="light-switch"  icon="pi pi-circle-off" (click)="dark = false"></p-button>
+            <p-button styleClass="dark-switch" icon="pi pi-circle-on" (click)="dark = true"></p-button>
+            <p-button styleClass="light-switch" icon="pi pi-circle-off" (click)="dark = false"></p-button>
         </div>
         <div class="login-panel">
             <div class="login-panel-content">
@@ -21,12 +21,14 @@
 
                     <div class="login-input-wrapper">
                         <label for="password">Password</label>
-                        <input type="password" id="password" [(ngModel)]="password" placeholder="Type your password" pPassword [feedback]="false"/>
+                        <input type="password" id="password" [(ngModel)]="password" placeholder="Type your password"
+                            pPassword [feedback]="false" />
                         <i class="pi pi-lock"></i>
                     </div>
 
                     <div class="p-col-12">
-                        <p-checkbox [(ngModel)]="checked" label="Remember me" value="SaveInfo" binary="true"></p-checkbox>
+                        <p-checkbox [(ngModel)]="checked" label="Remember me" value="SaveInfo" binary="true">
+                        </p-checkbox>
                     </div>
 
 
@@ -35,8 +37,8 @@
                         <a href="#" class="secondary-button">Forget Password?</a>
                     </div>
                     <div class="buttons">
-                        <p>Not registered? <a routerLink="register" class="secondary-button">Register</a></p>
-                        
+                        <p>Not registered? <a routerLink="/register" class="secondary-button">Register</a></p>
+
                     </div>
                 </div>
             </div>
@@ -50,4 +52,4 @@
     <div class="loader">
 
     </div>
-  </div>
+</div>

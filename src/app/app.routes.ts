@@ -17,32 +17,34 @@ import { AppNotfoundComponent } from './pages/app.notfound/app.notfound.componen
 import { AppErrorComponent } from './pages/app.error/app.error.component';
 import { AppAccessdeniedComponent } from './pages/app.accessdenied/app.accessdenied.component';
 import { AppLoginComponent } from './startup/app.login/app.login.component';
-import { RegistrationComponent } from './startup/registration/registration.component';
+import { ConsumerRegistrationComponent } from './startup/registration/registration.component';
+
+
 
 
 export const routes: Routes = [
 
-    
-    {path: 'login', component: AppLoginComponent},
-    {path: 'register',component:RegistrationComponent},
+
+    { path: 'login', component: AppLoginComponent },
+    { path: 'register', component: ConsumerRegistrationComponent },
     //{path:'consumer-dashboard', loadChildren: './app/_modules/consumer/consumer.module#ConsumerModule'},
     {
         path: 'consumer',
         loadChildren: () => import('./_modules/consumer/consumer.module').then(mod => mod.ConsumerModule),
     },
-    
+
     //{path:'transport-dashboard', loadChildren: './app/_modules/transport/transport.module#TransportModule'},
     {
-        path:'transport-dashboard',
+        path: 'transport-dashboard',
         loadChildren: () => import('./_modules/transport/transport.module').then(mod => mod.TransportModule),
     },
     {
-        path:"pharmacy-dashboard",
+        path: "pharmacy-dashboard",
         loadChildren: () => import('./_modules/pharmacy/pharmacy.module').then(mod => mod.PharmacyModule)
     },
-    {path: '**', redirectTo: '/login'},
-    
+    { path: '**', redirectTo: '/login' },
+
 
 ];
 
-export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});
+export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' });

@@ -16,19 +16,19 @@ export class AppLoginComponent implements OnInit {
   checked: boolean;
 
   username: string = '';
-  password: string = '';  
+  password: string = '';
   loaderVisible: boolean = false;
 
-  constructor(private authService:AuthService,
-              private router:Router,
-              private alertifyService:AlertifyService){
+  constructor(private authService: AuthService,
+    private router: Router,
+    private alertifyService: AlertifyService) {
 
   }
   ngOnInit(): void {
     this.dark = true;
   }
 
-  login(){
+  login() {
 
     let obj = new LoginModel();
     obj.Username = this.username;
@@ -37,37 +37,37 @@ export class AppLoginComponent implements OnInit {
     //this.routeToDefaultModule();
 
 
-    this.authService.login(obj).subscribe(data=>{
-        console.log(data);
-        if(data){
-          localStorage.setItem('token',data);
-          this.alertifyService.success(LoginMessageEN.LOGIN_SUCCESS_EN);
+    this.authService.login(obj).subscribe(data => {
+      console.log(data);
+      if (data) {
+        localStorage.setItem('token', data);
+        this.alertifyService.success(LoginMessageEN.LOGIN_SUCCESS_EN);
 
-          this.hideLoader();
-          this.routeToDefaultModule();
-        }
-        else{
-          this.hideLoader();
-          this.clearLoginForm();
-          this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
-          this.router.navigate(['/login']);
-        }
-        
-    }, error =>{
+        this.hideLoader();
+        this.routeToDefaultModule();
+      }
+      else {
+        this.hideLoader();
+        this.clearLoginForm();
+        this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
+        this.router.navigate(['/login']);
+      }
+
+    }, error => {
       this.clearLoginForm();
       this.hideLoader();
       this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);
       this.router.navigate(['/login']);
     });
   }
-  hideLoader() {  
+  hideLoader() {
     this.loaderVisible = false;
   }
   routeToDefaultModule() {
-    this.router.navigate(['/consumer']);
+    this.router.navigate(['/consumer/dashboard']);
   }
 
-  clearLoginForm(){
+  clearLoginForm() {
     this.username = "";
     this.password = "";
   }

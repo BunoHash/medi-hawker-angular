@@ -27,7 +27,6 @@ import { CarService } from 'src/app/demo/service/carservice';
 import { BreadcrumbService } from 'src/app/pages/app.breadcrumb/breadcrumb.service';
 import { EventService } from 'src/app/demo/service/eventservice';
 import { HttpClientModule } from '@angular/common/http';
-import { ConsumerRegistrationComponent } from './consumer-registration/consumer-registration.component';
 import { ConsumerShellComponent } from './consumer-shell/consumer-shell.component';
 import { AppMenuComponent } from 'src/app/pages/app.menu/app.menu.component';
 import { AppMenuitemComponent } from 'src/app/pages/app.menuitem/app.menuitem.component';
@@ -124,7 +123,6 @@ import { ProductListComponent } from './product/product-list/product-list.compon
     RouterModule.forChild(routes)
   ],
   declarations: [ConsumerShellComponent, ConsumerDashboardComponent, DashboardComponent,
-    ConsumerRegistrationComponent,
     AppMenuComponent,
     AppMenuitemComponent,
     AppTopBarComponent,
