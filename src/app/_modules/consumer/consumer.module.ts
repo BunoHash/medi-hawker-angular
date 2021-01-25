@@ -123,7 +123,8 @@ import { ProductListComponent } from './product/product-list/product-list.compon
     CardModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ConsumerShellComponent, ConsumerDashboardComponent, DashboardComponent, ConsumerRegistrationComponent,
+  declarations: [ConsumerShellComponent, ConsumerDashboardComponent, DashboardComponent,
+    ConsumerRegistrationComponent,
     AppMenuComponent,
     AppMenuitemComponent,
     AppTopBarComponent,

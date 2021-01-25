@@ -35,6 +35,7 @@ export class ConsumerRegistrationComponent implements OnInit {
 
   })
   saveRegisterConsumer(consumer: ConsumerRegister) {
+
     this.consumerService.saveRegisterConsumer(consumer).subscribe(data => {
       console.log(data);
 
@@ -48,6 +49,8 @@ export class ConsumerRegistrationComponent implements OnInit {
     var consumerRegister = new ConsumerRegister();
     var consumer = new Consumer();
     var consumerDetails = new ConsumerDetails();
+
+
     consumer = this.ConsumerForm.value;
     consumerRegister.Consumer = consumer;
     consumerRegister.ConsumerDetails = this.ConsumerForm.value;
