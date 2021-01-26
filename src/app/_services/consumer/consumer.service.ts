@@ -18,5 +18,9 @@ export class ConsumerService {
     return this.api.post<boolean>(`${this.apiPath}saveRegisterConsumer`, consumer);
   }
 
+  emailAlreayExists(email: string): Observable<boolean> {
+    return this.api.get<boolean>(`${this.apiPath}emailAlreayExists/${email}`);
+  }
+
 
 }

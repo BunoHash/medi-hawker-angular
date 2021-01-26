@@ -12,7 +12,7 @@
                 </div>
                 <h1>Sign Up</h1>
                 <!-- <p>Welcome, please use the form to sign-in MediHawker network</p> -->
-                <form class="forms" [formGroup]="ConsumerForm">
+                <form class="forms" [formGroup]="consumerForm">
                     
                     <div class="p-grid">
                         <div class="p-col-12 p-lg-6">
@@ -37,8 +37,10 @@
                     </div>
                     <div class="login-input-wrapper">
                         <label for="Email">Email</label>
-                        <input type="email" pInputText placeholder="Email" [(ngModel)]="txtEmail"
+                        <input type="email" pInputText placeholder="Email" (keyup)="checkEmail($event)" [(ngModel)]="txtEmail"
                             formControlName="Email">
+                            <p-message  severity="error" *ngIf="emailExists && consumerForm.controls['Email'].dirty" class="danger exist-email" text='Email already exists.'>
+                            </p-message>
 
                         <i class="pi pi-user"></i>
                     </div>
@@ -47,7 +49,7 @@
                         <input type="text" pInputText placeholder="Address" [(ngModel)]="txtAddress" type="text"
                             formControlName="Address">
 
-                        <i class="pi pi-user"></i>
+
                     </div>
 
                     <div class="p-grid">
@@ -85,9 +87,12 @@
                         <div class="p-col-12 p-lg-6">
                             <div class="login-input-wrapper">
                                 <label for="Password">Confirm Password</label>
-                                <input type="password" id="password" [(ngModel)]="txtPassword" placeholder="Type your password"
-                                    pPassword [feedback]="false" formControlName="Password" />
+                                <input type="password" id="password"  placeholder="Type your password"
+                                    pPassword [feedback]="false" formControlName="ConfirmPassword" />
                                 <i class="pi pi-lock"></i>
+                                <div *ngIf="consumerForm.controls['ConfirmPassword'].dirty && consumerForm.hasError('mismatch')" class="valid-data ui-message ui-messages-error ui-corner-all">
+                                    Password mismatch
+                                  </div>
                             </div>
                         </div>
                     </div>
@@ -96,7 +101,7 @@
 
                    
                     <div class="login-input-wrapper buttons">
-                        <button pButton type="button" (click)="registerConsumer()" label="Register"></button>
+                        <button [disabled]="!consumerForm.valid" pButton type="button" (click)="registerConsumer()" label="Register"></button>
                     </div>
                 </form>
             </div>
