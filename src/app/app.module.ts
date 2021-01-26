@@ -111,6 +111,8 @@ import { ConsumerRegistrationComponent } from './startup/registration/registrati
 // Toaster service
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { ProductData } from 'src/assets/resources/product.data';
 
 export function getAccessToken(): string {
     return localStorage.getItem('token');
@@ -126,6 +128,7 @@ export const jwtConfig = {
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
+        HttpClientInMemoryWebApiModule.forRoot(ProductData),
         AppRoutes,
         HttpClientModule,
         BrowserAnimationsModule,
