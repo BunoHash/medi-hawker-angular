@@ -110,7 +110,6 @@ import { ConsumerRegistrationComponent } from './startup/registration/registrati
 
 // Toaster service
 import { CommonModule } from '@angular/common';
-
 import { ToastrModule } from 'ngx-toastr';
 
 export function getAccessToken(): string {

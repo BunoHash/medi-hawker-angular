@@ -13,24 +13,32 @@
                 <h1>Sign Up</h1>
                 <!-- <p>Welcome, please use the form to sign-in MediHawker network</p> -->
                 <form class="forms" [formGroup]="ConsumerForm">
-                    <div class="login-input-wrapper">
-                        <label for="username">Username</label>
-                        <input type="text" pInputText placeholder="User Name" [(ngModel)]="txtUserName" type="text"
-                            formControlName="UserName">
-
-                        <i class="pi pi-user"></i>
+                    
+                    <div class="p-grid">
+                        <div class="p-col-12 p-lg-6">
+                    
+                            <div class="login-input-wrapper">
+                                <label for="FirstName">First Name</label>
+                                <input type="text" pInputText placeholder="First Name" [(ngModel)]="txtFirstName" type="text"
+                                    formControlName="FirstName">
+        
+                                <i class="pi pi-user"></i>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-lg-6">
+                            <div class="login-input-wrapper">
+                                <label for="LastName">Last Name</label>
+                                <input type="text" pInputText placeholder="Last Name" [(ngModel)]="txtLastName" type="text"
+                                    formControlName="LastName">
+        
+                                <i class="pi pi-user"></i>
+                            </div>
+                        </div>
                     </div>
                     <div class="login-input-wrapper">
-                        <label for="FirstName">First Name</label>
-                        <input type="text" pInputText placeholder="First Name" [(ngModel)]="txtFirstName" type="text"
-                            formControlName="FirstName">
-
-                        <i class="pi pi-user"></i>
-                    </div>
-                    <div class="login-input-wrapper">
-                        <label for="LastName">Last Name</label>
-                        <input type="text" pInputText placeholder="Last Name" [(ngModel)]="txtLastName" type="text"
-                            formControlName="LastName">
+                        <label for="Email">Email</label>
+                        <input type="email" pInputText placeholder="Email" [(ngModel)]="txtEmail"
+                            formControlName="Email">
 
                         <i class="pi pi-user"></i>
                     </div>
@@ -41,33 +49,52 @@
 
                         <i class="pi pi-user"></i>
                     </div>
-                    <div class="login-input-wrapper">
-                        <label for="Email">Email</label>
-                        <input type="text" pInputText placeholder="Email" [(ngModel)]="txtEmail" type="text"
-                            formControlName="Email">
 
-                        <i class="pi pi-user"></i>
+                    <div class="p-grid">
+                        <div class="p-col-12 p-lg-6">
+                            <div class="login-input-wrapper">
+                                <label for="username">Username</label>
+                                <input type="text" pInputText placeholder="User Name" [(ngModel)]="txtUserName"
+                                    formControlName="UserName">
+        
+                                <i class="pi pi-user"></i>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-lg-6">
+                            <div class="login-input-wrapper">
+                                <label for="Phone">Phone</label>
+                                <input type="number" pInputText placeholder="Phone" [(ngModel)]="txtPhone" 
+                                    formControlName="Phone">
+        
+                                <i class="pi pi-user"></i>
+                            </div>
+                        </div>
                     </div>
-                    <div class="login-input-wrapper">
-                        <label for="Phone">Phone</label>
-                        <input type="text" pInputText placeholder="Phone" [(ngModel)]="txtPhone" type="text"
-                            formControlName="Phone">
 
-                        <i class="pi pi-user"></i>
+                   
+                    
+                    <div class="p-grid layout-dashboard">
+                        <div class="p-col-12 p-lg-6">
+                            <div class="login-input-wrapper">
+                                <label for="Password">Password</label>
+                                <input type="password" id="password" [(ngModel)]="txtPassword" placeholder="Type your password"
+                                    pPassword [feedback]="false" formControlName="Password" />
+                                <i class="pi pi-lock"></i>
+                            </div>
+                        </div>
+                        <div class="p-col-12 p-lg-6">
+                            <div class="login-input-wrapper">
+                                <label for="Password">Confirm Password</label>
+                                <input type="password" id="password" [(ngModel)]="txtPassword" placeholder="Type your password"
+                                    pPassword [feedback]="false" formControlName="Password" />
+                                <i class="pi pi-lock"></i>
+                            </div>
+                        </div>
                     </div>
+                   
+                    
 
-                    <div class="login-input-wrapper">
-                        <label for="Password">Password</label>
-                        <input type="password" id="password" [(ngModel)]="txtPassword" placeholder="Type your password"
-                            pPassword [feedback]="false" formControlName="Password" />
-                        <i class="pi pi-lock"></i>
-                    </div>
-                    <div class="login-input-wrapper">
-                        <label for="Password">Confirm Password</label>
-                        <input type="password" id="password" [(ngModel)]="txtPassword" placeholder="Type your password"
-                            pPassword [feedback]="false" formControlName="Password" />
-                        <i class="pi pi-lock"></i>
-                    </div>
+                   
                     <div class="login-input-wrapper buttons">
                         <button pButton type="button" (click)="registerConsumer()" label="Register"></button>
                     </div>

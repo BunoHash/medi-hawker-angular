@@ -25,6 +25,7 @@
         "@fullcalendar/daygrid": "4.0.1",
         "@fullcalendar/interaction": "4.0.2",
         "@fullcalendar/timegrid": "4.0.1",
+        "angular-in-memory-web-api": "^0.11.0",
         "chart.js": "2.7.3",
         "intl": "1.2.5",
         "ngx-toastr": "^13.2.0",
