@@ -13,34 +13,35 @@
                 <h1>Sign Up</h1>
                 <!-- <p>Welcome, please use the form to sign-in MediHawker network</p> -->
                 <form class="forms" [formGroup]="consumerForm">
-                    
+
                     <div class="p-grid">
                         <div class="p-col-12 p-lg-6">
-                    
+
                             <div class="login-input-wrapper">
                                 <label for="FirstName">First Name</label>
-                                <input type="text" pInputText placeholder="First Name" [(ngModel)]="txtFirstName" type="text"
-                                    formControlName="FirstName">
-        
+                                <input type="text" pInputText placeholder="First Name" [(ngModel)]="txtFirstName"
+                                    type="text" formControlName="FirstName">
+
                                 <i class="pi pi-user"></i>
                             </div>
                         </div>
                         <div class="p-col-12 p-lg-6">
                             <div class="login-input-wrapper">
                                 <label for="LastName">Last Name</label>
-                                <input type="text" pInputText placeholder="Last Name" [(ngModel)]="txtLastName" type="text"
-                                    formControlName="LastName">
-        
+                                <input type="text" pInputText placeholder="Last Name" [(ngModel)]="txtLastName"
+                                    type="text" formControlName="LastName">
+
                                 <i class="pi pi-user"></i>
                             </div>
                         </div>
                     </div>
                     <div class="login-input-wrapper">
                         <label for="Email">Email</label>
-                        <input type="email" pInputText placeholder="Email" (keyup)="checkEmail($event)" [(ngModel)]="txtEmail"
-                            formControlName="Email">
-                            <p-message  severity="error" *ngIf="emailExists && consumerForm.controls['Email'].dirty" class="danger exist-email" text='Email already exists.'>
-                            </p-message>
+                        <input type="email" pInputText placeholder="Email" (keyup)="checkEmail($event)"
+                            [(ngModel)]="txtEmail" formControlName="Email">
+                        <p-message severity="error" *ngIf="emailExists && consumerForm.controls['Email'].dirty"
+                            class="danger exist-email" text='Email already exists.'>
+                        </p-message>
 
                         <i class="pi pi-user"></i>
                     </div>
@@ -58,50 +59,53 @@
                                 <label for="username">Username</label>
                                 <input type="text" pInputText placeholder="User Name" [(ngModel)]="txtUserName"
                                     formControlName="UserName">
-        
+
                                 <i class="pi pi-user"></i>
                             </div>
                         </div>
                         <div class="p-col-12 p-lg-6">
                             <div class="login-input-wrapper">
                                 <label for="Phone">Phone</label>
-                                <input type="number" pInputText placeholder="Phone" [(ngModel)]="txtPhone" 
+                                <input type="number" pInputText placeholder="Phone" [(ngModel)]="txtPhone"
                                     formControlName="Phone">
-        
+
                                 <i class="pi pi-user"></i>
                             </div>
                         </div>
                     </div>
 
-                   
-                    
+
+
                     <div class="p-grid layout-dashboard">
                         <div class="p-col-12 p-lg-6">
                             <div class="login-input-wrapper">
                                 <label for="Password">Password</label>
-                                <input type="password" id="password" [(ngModel)]="txtPassword" placeholder="Type your password"
-                                    pPassword [feedback]="false" formControlName="Password" />
+                                <input type="password" id="password" [(ngModel)]="txtPassword"
+                                    placeholder="Type your password" pPassword [feedback]="false"
+                                    formControlName="Password" />
                                 <i class="pi pi-lock"></i>
                             </div>
                         </div>
                         <div class="p-col-12 p-lg-6">
                             <div class="login-input-wrapper">
                                 <label for="Password">Confirm Password</label>
-                                <input type="password" id="password"  placeholder="Type your password"
-                                    pPassword [feedback]="false" formControlName="ConfirmPassword" />
+                                <input type="password" id="password" placeholder="Type your password" pPassword
+                                    [feedback]="false" formControlName="ConfirmPassword" />
                                 <i class="pi pi-lock"></i>
-                                <div *ngIf="consumerForm.controls['ConfirmPassword'].dirty && consumerForm.hasError('mismatch')" class="valid-data ui-message ui-messages-error ui-corner-all">
+                                <div *ngIf="consumerForm.controls['ConfirmPassword'].dirty && consumerForm.hasError('mismatch')"
+                                    class="valid-data ui-message ui-messages-error ui-corner-all">
                                     Password mismatch
-                                  </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                   
-                    
 
-                   
+
+
+
                     <div class="login-input-wrapper buttons">
-                        <button [disabled]="!consumerForm.valid" pButton type="button" (click)="registerConsumer()" label="Register"></button>
+                        <button [disabled]="!consumerForm.valid" pButton type="button" (click)="registerConsumer()"
+                            label="Register"></button>
                     </div>
                 </form>
             </div>

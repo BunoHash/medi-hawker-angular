@@ -23,7 +23,7 @@ export class ConsumerRegistrationComponent implements OnInit {
   public txtFirstName = "";
   public txtLastName = "";
   public txtPassword = "";
-  consumerForm : FormGroup;
+  consumerForm: FormGroup;
   searchEmailTextSubject$ = new Subject<string>();
   searchUsernameTextSubject$ = new Subject<string>();
   emailExists: boolean;
@@ -36,7 +36,7 @@ export class ConsumerRegistrationComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.dark = true;
     this.consumerForm = new FormGroup({
       UserName: new FormControl("", Validators.required),
@@ -47,33 +47,36 @@ export class ConsumerRegistrationComponent implements OnInit {
       LastName: new FormControl("", Validators.required),
       Password: new FormControl("", Validators.required),
       ConfirmPassword: new FormControl("", Validators.required),
-  
+
     },
-    { validators: this.passwordMatch }
-    )
+      { validators: this.passwordMatch }
+    );
+
+    this.searchEmailTextSubject$.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      map(x => x),
+      switchMap(searchText => this.consumerService.emailAlreayExists(searchText))
+    ).subscribe(isExists => {
+      this.emailExists = isExists;
+      console.log('email exists ----', this.emailExists);
+    });
+
   }
 
   passwordMatch(g: FormGroup) {
     return g.get("Password").value === g.get("ConfirmPassword").value ? null : { mismatch: true };
   }
 
-  checkEmail(event){
+  checkEmail(event) {
+    console.log(event.target.value);
 
-    this.searchEmailTextSubject$.pipe(
-      debounceTime(500),
-      distinctUntilChanged(),
-      map(x=>x),
-      switchMap(searchText =>this.consumerService.emailAlreayExists(searchText))
-    ).subscribe(isExists => {
-      this.emailExists = isExists;
-      console.log('email exists ----',this.emailExists);
-    });
-
+    this.searchEmailTextSubject$.next(event.target.value);
   }
 
-  
 
-  
+
+
   saveRegisterConsumer(consumer: ConsumerRegister) {
 
     this.consumerService.saveRegisterConsumer(consumer).subscribe(data => {
@@ -115,6 +118,6 @@ export class ConsumerRegistrationComponent implements OnInit {
     // console.log(this.consumerForm.value);
   }
 
-  
+
 
 }
