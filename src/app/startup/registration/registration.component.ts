@@ -95,18 +95,23 @@ export class ConsumerRegistrationComponent implements OnInit {
     var consumerDetails = new ConsumerDetails();
 
 
-    consumer = this.consumerForm.value;
-    consumerRegister.Consumer = consumer;
-    consumerRegister.ConsumerDetails = this.consumerForm.value;
-    this.saveRegisterConsumer(consumerRegister);
-    consumerRegister
+    consumer.UserName = this.consumerForm.controls["UserName"].value;
+    consumer.Phone = this.consumerForm.controls["Phone"].value;
+    consumer.Password = this.consumerForm.controls["Password"].value;
 
-    // consumer.UserName = this.consumerForm.controls["UserName"].value;
-    // consumer.Phone = this.consumerForm.controls["Phone"].value;
-    // consumerDetails.Address = this.consumerForm.controls["Address"].value;
-    // consumerDetails.Email = this.consumerForm.controls["Email"].value;
-    // consumerDetails.FirstName = this.consumerForm.controls["FirstName"].value;
-    // consumerDetails.LastName = this.consumerForm.controls["LastName"].value;
+    consumerDetails.Address = this.consumerForm.controls["Address"].value;
+    consumerDetails.Email = this.consumerForm.controls["Email"].value;
+    consumerDetails.FirstName = this.consumerForm.controls["FirstName"].value;
+    consumerDetails.LastName = this.consumerForm.controls["LastName"].value;
+
+    // consumer = this.consumerForm.value;
+    consumerRegister.Consumer = consumer;
+    // consumerRegister.ConsumerDetails = this.consumerForm.value;
+    consumerRegister.ConsumerDetails = consumerDetails;
+    this.saveRegisterConsumer(consumerRegister);
+    // consumerRegister
+
+
 
 
     // console.log('Cons', consumerRegister.Consumer);

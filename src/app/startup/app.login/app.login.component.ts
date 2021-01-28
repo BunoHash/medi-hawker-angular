@@ -30,8 +30,10 @@ export class AppLoginComponent implements OnInit {
 
   login() {
 
+    console.log("you clicked me!!");
+
     let obj = new LoginModel();
-    obj.Username = this.username;
+    obj.UserName = this.username;
     obj.Password = this.password;
     this.loaderVisible = true;
     //this.routeToDefaultModule();
@@ -54,6 +56,8 @@ export class AppLoginComponent implements OnInit {
       }
 
     }, error => {
+      console.log(error);
+
       this.clearLoginForm();
       this.hideLoader();
       this.alertifyService.error(LoginMessageEN.LOGIN_FAILED_EN);

@@ -1,5 +1,4 @@
-<div class="layout-wrapper" (click)="onLayoutClick()"
-     [ngClass]="{'layout-horizontal': horizontalMenu,
+<div class="layout-wrapper" (click)="onLayoutClick()" [ngClass]="{'layout-horizontal': horizontalMenu,
                 'layout-wrapper-static': staticMenuActive,
                 'layout-rightpanel-active': rightPanelActive,
                 'layout-topbar-mobile-active': topbarMobileMenuActive,
@@ -10,18 +9,18 @@
 
     <div class="layout-main">
         <app-topbar>
-            
+
         </app-topbar>
-
-
-        
 
         <app-rightpanel></app-rightpanel>
 
         <app-breadcrumb></app-breadcrumb>
 
         <div class="layout-content">
+            <!-- <con-add-product [item]="currentItem"></con-add-product> -->
             <router-outlet></router-outlet>
+            <!-- <con-add-product [callbackFunction]="myCallbackFunction"></con-add-product> -->
+
         </div>
 
         <app-footer></app-footer>

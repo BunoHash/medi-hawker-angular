@@ -1,185 +1,191 @@
 
-import {Component, Renderer2} from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { MenuService } from 'src/app/pages/app.menu/app.menu.service';
 
 @Component({
-  selector: 'app-consumer-shell',
-  templateUrl: './consumer-shell.component.html',
-  styleUrls: ['./consumer-shell.component.css']
+    selector: 'app-consumer-shell',
+    templateUrl: './consumer-shell.component.html',
+    styleUrls: ['./consumer-shell.component.css']
 })
 export class ConsumerShellComponent {
 
-  horizontalMenu: boolean;
+    // myCallbackFunction = (arg: any): void => {
 
-  darkMode = false;
+    // }
+    currentItem = 'Napa';
+    horizontalMenu: boolean;
 
-  menuColorMode = 'light';
+    darkMode = false;
 
-  menuColor = 'layout-menu-light';
+    menuColorMode = 'light';
 
-  themeColor = 'blue';
+    menuColor = 'layout-menu-light';
 
-  layoutColor = 'blue';
+    themeColor = 'blue';
 
-  rightPanelClick: boolean;
+    layoutColor = 'blue';
 
-  rightPanelActive: boolean;
+    rightPanelClick: boolean;
 
-  menuClick: boolean;
+    rightPanelActive: boolean;
 
-  staticMenuActive: boolean;
+    menuClick: boolean;
 
-  menuMobileActive: boolean;
+    staticMenuActive: boolean;
 
-  megaMenuClick: boolean;
+    menuMobileActive: boolean;
 
-  megaMenuActive: boolean;
+    megaMenuClick: boolean;
 
-  megaMenuMobileClick: boolean;
+    megaMenuActive: boolean;
 
-  megaMenuMobileActive: boolean;
+    megaMenuMobileClick: boolean;
 
-  topbarItemClick: boolean;
+    megaMenuMobileActive: boolean;
 
-  topbarMobileMenuClick: boolean;
+    topbarItemClick: boolean;
 
-  topbarMobileMenuActive: boolean;
+    topbarMobileMenuClick: boolean;
 
-  configDialogActive: boolean;
+    topbarMobileMenuActive: boolean;
 
-  sidebarActive: boolean;
+    configDialogActive: boolean;
 
-  activeTopbarItem: any;
+    sidebarActive: boolean;
 
-  topbarMenuActive: boolean;
+    activeTopbarItem: any;
 
-  menuHoverActive: boolean;
+    topbarMenuActive: boolean;
 
-  constructor(public renderer: Renderer2, private menuService: MenuService) {}
+    menuHoverActive: boolean;
 
-  onLayoutClick() {
-      if (!this.topbarItemClick) {
-          this.activeTopbarItem = null;
-          this.topbarMenuActive = false;
-      }
+    constructor(public renderer: Renderer2, private menuService: MenuService) { }
 
-      if (!this.rightPanelClick) {
-          this.rightPanelActive = false;
-      }
+    onLayoutClick() {
+        if (!this.topbarItemClick) {
+            this.activeTopbarItem = null;
+            this.topbarMenuActive = false;
+        }
 
-      if (!this.megaMenuClick) {
-          this.megaMenuActive = false;
-      }
+        if (!this.rightPanelClick) {
+            this.rightPanelActive = false;
+        }
 
-      if (!this.megaMenuMobileClick) {
-          this.megaMenuMobileActive = false;
-      }
+        if (!this.megaMenuClick) {
+            this.megaMenuActive = false;
+        }
 
-      if (!this.menuClick) {
-          if (this.isHorizontal()) {
-              this.menuService.reset();
-          }
+        if (!this.megaMenuMobileClick) {
+            this.megaMenuMobileActive = false;
+        }
 
-          if (this.menuMobileActive) {
-              this.menuMobileActive = false;
-          }
+        if (!this.menuClick) {
+            if (this.isHorizontal()) {
+                this.menuService.reset();
+            }
 
-          this.menuHoverActive = false;
-      }
+            if (this.menuMobileActive) {
+                this.menuMobileActive = false;
+            }
 
-      this.menuClick = false;
-      this.topbarItemClick = false;
-      this.megaMenuClick = false;
-      this.megaMenuMobileClick = false;
-      this.rightPanelClick = false;
-  }
+            this.menuHoverActive = false;
+        }
 
-  onMegaMenuButtonClick(event) {
-      this.megaMenuClick = true;
-      this.megaMenuActive = !this.megaMenuActive;
-      event.preventDefault();
-  }
+        this.menuClick = false;
+        this.topbarItemClick = false;
+        this.megaMenuClick = false;
+        this.megaMenuMobileClick = false;
+        this.rightPanelClick = false;
+    }
 
-  onMegaMenuClick(event) {
-      this.megaMenuClick = true;
-      event.preventDefault();
-  }
+    onMegaMenuButtonClick(event) {
+        this.megaMenuClick = true;
+        this.megaMenuActive = !this.megaMenuActive;
+        event.preventDefault();
+    }
 
-  onTopbarItemClick(event, item) {
-      this.topbarItemClick = true;
+    onMegaMenuClick(event) {
+        this.megaMenuClick = true;
+        event.preventDefault();
+    }
 
-      if (this.activeTopbarItem === item) {
-          this.activeTopbarItem = null; } else {
-          this.activeTopbarItem = item; }
+    onTopbarItemClick(event, item) {
+        this.topbarItemClick = true;
 
-      event.preventDefault();
-  }
+        if (this.activeTopbarItem === item) {
+            this.activeTopbarItem = null;
+        } else {
+            this.activeTopbarItem = item;
+        }
 
-  onRightPanelButtonClick(event) {
-      this.rightPanelClick = true;
-      this.rightPanelActive = !this.rightPanelActive;
+        event.preventDefault();
+    }
 
-      event.preventDefault();
-  }
+    onRightPanelButtonClick(event) {
+        this.rightPanelClick = true;
+        this.rightPanelActive = !this.rightPanelActive;
 
-  onRightPanelClose(event) {
-      this.rightPanelActive = false;
-      this.rightPanelClick = false;
+        event.preventDefault();
+    }
 
-      event.preventDefault();
-  }
+    onRightPanelClose(event) {
+        this.rightPanelActive = false;
+        this.rightPanelClick = false;
 
-  onRightPanelClick(event) {
-      this.rightPanelClick = true;
+        event.preventDefault();
+    }
 
-      event.preventDefault();
-  }
+    onRightPanelClick(event) {
+        this.rightPanelClick = true;
 
-  onTopbarMobileMenuButtonClick(event) {
-      this.topbarMobileMenuClick = true;
-      this.topbarMobileMenuActive = !this.topbarMobileMenuActive;
+        event.preventDefault();
+    }
 
-      event.preventDefault();
-  }
+    onTopbarMobileMenuButtonClick(event) {
+        this.topbarMobileMenuClick = true;
+        this.topbarMobileMenuActive = !this.topbarMobileMenuActive;
 
-  onMegaMenuMobileButtonClick(event) {
-      this.megaMenuMobileClick = true;
-      this.megaMenuMobileActive = !this.megaMenuMobileActive;
+        event.preventDefault();
+    }
 
-      event.preventDefault();
-  }
+    onMegaMenuMobileButtonClick(event) {
+        this.megaMenuMobileClick = true;
+        this.megaMenuMobileActive = !this.megaMenuMobileActive;
 
-  onMenuButtonClick(event) {
-      this.menuClick = true;
-      this.topbarMenuActive = false;
+        event.preventDefault();
+    }
 
-      if (this.isMobile()) {
-          this.menuMobileActive = !this.menuMobileActive;
-      }
+    onMenuButtonClick(event) {
+        this.menuClick = true;
+        this.topbarMenuActive = false;
 
-      event.preventDefault();
-  }
+        if (this.isMobile()) {
+            this.menuMobileActive = !this.menuMobileActive;
+        }
 
-  onSidebarClick(event: Event) {
-      this.menuClick = true;
-  }
+        event.preventDefault();
+    }
 
-  onToggleMenuClick(event: Event) {
-      this.staticMenuActive = !this.staticMenuActive;
-      event.preventDefault();
-  }
+    onSidebarClick(event: Event) {
+        this.menuClick = true;
+    }
 
-  isDesktop() {
-      return window.innerWidth > 991;
-  }
+    onToggleMenuClick(event: Event) {
+        this.staticMenuActive = !this.staticMenuActive;
+        event.preventDefault();
+    }
 
-  isMobile() {
-      return window.innerWidth <= 991;
-  }
+    isDesktop() {
+        return window.innerWidth > 991;
+    }
 
-  isHorizontal() {
-      return this.horizontalMenu === true;
-  }
+    isMobile() {
+        return window.innerWidth <= 991;
+    }
+
+    isHorizontal() {
+        return this.horizontalMenu === true;
+    }
 
 }

@@ -22,5 +22,9 @@ export class ConsumerService {
     return this.api.get<boolean>(`${this.apiPath}emailAlreayExists/${email}`);
   }
 
+  usernameAlreayExists(username: string): Observable<boolean> {
+    return this.api.get<boolean>(`${this.apiPath}userNameAlreayExists/${username}`);
+  }
+
 
 }
