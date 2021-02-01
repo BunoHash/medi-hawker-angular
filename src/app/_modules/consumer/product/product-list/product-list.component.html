@@ -7,7 +7,7 @@
                     <h1>Products</h1>
                 </div>
                 <div class="p-col-6 store-info">
-                    <div class="info-item add" (click)="AddItem()"><i class="pi pi-plus"></i> Add Item</div>
+                    <button class="info-item add" (click)="AddItem()"><i class="pi pi-plus"></i> Add Item</button>
                     <div class="info-item library">
                         <input pInput [(ngModel)]="textData">
                     </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-4">
-        <con-add-product [text]="textData"></con-add-product>
+        <con-add-product *ngIf="showMe" [text]="textData"></con-add-product>
     </div>
 
 </div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input} from '@angular/core';
+
 
 
 @Component({
@@ -8,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListComponent implements OnInit {
   textData: string;
-  AddItem() {
-
-  }
+  @Input() showMe:boolean =false;
+  
+  
   constructor() {
     this.textData = "";
   }
 
   ngOnInit(): void {
   }
-
+  AddItem() {
+    this.showMe=!this.showMe
+  }
 }
