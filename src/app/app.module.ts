@@ -128,7 +128,7 @@ export const jwtConfig = {
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
-        HttpClientInMemoryWebApiModule.forRoot(ProductData),
+        //HttpClientInMemoryWebApiModule.forRoot(ProductData),
         AppRoutes,
         HttpClientModule,
         BrowserAnimationsModule,
