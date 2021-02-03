@@ -5,6 +5,10 @@
             Today's item: {{text}}
         </div>
         <div>
+            <label>Name :</label>
+            <input type="text" pInputText>
+        </div>
+        <div>
 
             <label>Pax Count :</label>
             <input type="Number" pInputText>
@@ -26,10 +30,16 @@
         </div>
 
         <div>
-            <label class="p-col-12 p-md-4">Manufacturer</label>
-            <p-dropdown></p-dropdown>
+            <label class="p-col-12 p-md-4" >Manufacturer</label>
+
+            <p-dropdown [options]="manufacturerList" [(ngModel)]="selectedManufacturer" placeholder="Select a Manufacturer" optionLabel="name"></p-dropdown>
+            
+        </div>
+        
+            <div>
+            <button pButton type="submit" label="Save">
+            </button>
         </div>
     </div>
 </div>
 
-<!-- <p-dialog [(visible)]="display"></p-dialog> -->

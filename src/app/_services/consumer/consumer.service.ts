@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Consumer } from 'src/app/_models/consumer/consumer.model';
@@ -11,7 +12,8 @@ export class ConsumerService {
 
   public apiPath = "consumer/"
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,
+              private http: HttpClient) { }
 
 
   public saveRegisterConsumer(consumer: ConsumerRegister): Observable<boolean> {
@@ -25,6 +27,6 @@ export class ConsumerService {
   usernameAlreayExists(username: string): Observable<boolean> {
     return this.api.get<boolean>(`${this.apiPath}userNameAlreayExists/${username}`);
   }
-
-
+  
+  
 }
