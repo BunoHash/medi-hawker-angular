@@ -35,6 +35,12 @@
             <p-dropdown [options]="manufacturerList" [(ngModel)]="selectedManufacturer" placeholder="Select a Manufacturer" optionLabel="name"></p-dropdown>
             
         </div>
+        <div>
+            <label class="p-col-12 p-md-4" >Generic Name</label>
+
+            <p-dropdown [options]="genericNameList" [(ngModel)]="selectedGenericName" placeholder="Select a GenericName" optionLabel="name"></p-dropdown>
+            
+        </div>
         
             <div>
             <button pButton type="submit" label="Save">
