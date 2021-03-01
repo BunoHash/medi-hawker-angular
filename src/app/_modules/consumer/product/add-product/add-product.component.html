@@ -1,51 +1,60 @@
-<div class="card store-items" >
+<div class="card store-items">
 
     <div class="store-cards-container">
-        <div>
+        <!-- <div>
             Today's item: {{text}}
-        </div>
+
+        </div> -->
         <div>
             <label>Product Name :</label>
-            <input type="text" pInputText>
+            <input type="text" pInputText [(ngModel)]="txtName">
+
         </div>
         <div>
 
             <label>Pax Count :</label>
-            <input type="Number" pInputText>
+            <input type="text" pInputText [(ngModel)]="txtPaxCount">
         </div>
         <div>
             <label>Selling Price :</label>
-            <input type="Number" pInputText>
+            <input type="text" pInputText [(ngModel)]="txtSellingPrice">
         </div>
 
         <div>
             <label>Buying Price :</label>
-            <input type="Number" pInputText>
+            <input type="text" pInputText [(ngModel)]="txtBuyingPrice">
         </div>
 
 
         <div>
             <label>Description:</label>
-            <input type="text" pInputText>
+            <input type="text" pInputText [(ngModel)]="txtDescription">
         </div>
 
         <div>
-            <label class="p-col-12 p-md-4" >Manufacturer</label>
+            <label class="p-col-12 p-md-4">Manufacturer</label>
 
-            <p-dropdown [options]="manufacturerList" [(ngModel)]="selectedManufacturer" placeholder="Select a Manufacturer" optionLabel="name"></p-dropdown>
-            
+            <p-dropdown [options]="manufacturerList" [(ngModel)]="selectedManufacturer"
+                placeholder="Select a Manufacturer" optionLabel="Name">
+
+            </p-dropdown>
+
+
         </div>
+
         <div>
-            <label class="p-col-12 p-md-4" >Generic Name</label>
+            <label class="p-col-12 p-md-4">Generic Name</label>
 
-            <p-dropdown [options]="genericNameList" [(ngModel)]="selectedGenericName" placeholder="Select a GenericName" optionLabel="name"></p-dropdown>
-            
+            <p-dropdown [options]="genericNameList" [(ngModel)]="selectedGenericName" placeholder="Select a GenericName"
+                optionLabel="Name"></p-dropdown>
+
         </div>
-        
-            <div>
-            <button pButton type="submit" label="Save">
+
+        <div>
+            <button pButton type="submit" (click)="saveProduct()" label="Save">
             </button>
         </div>
+
+
     </div>
 </div>
-
