@@ -1,11 +1,11 @@
-export class ConsumerDetails{
+export class ConsumerDetails {
 
     ConsumerDetailsId: number;
     Address: string;
     Email: string;
-    ConsumerId: number;
+    ConsumerId?: number;
     CreatedOn: Date;
-    CreatedBy: number;
+    CreatedBy?: number;
     FirstName: string;
     LastName: string;
 } 

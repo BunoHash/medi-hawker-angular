@@ -4,8 +4,8 @@ import { ConsumerDetails } from "./consumerDetails.model";
 export class ConsumerRegister {
 
     constructor() {
-        this.Consumer = new Consumer();
-        this.ConsumerDetails = new ConsumerDetails();
+        //this.Consumer = new Consumer();
+        //this.ConsumerDetails = new ConsumerDetails();
 
     }
     Consumer: Consumer;
