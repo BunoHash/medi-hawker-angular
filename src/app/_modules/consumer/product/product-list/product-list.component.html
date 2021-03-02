@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="p-col-12 p-lg-4">
-        <con-add-product *ngIf="showMe" [text]="textData"></con-add-product>
+        <con-add-product *ngIf="showMe" (someEvent)="AddItem($event)" [text]="textData"></con-add-product>
     </div>
 
 </div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { provideRoutes } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { cwd } from 'process';
 import { Generic } from 'src/app/_models/generic/generic.model';
 import { Manufacturer } from 'src/app/_models/manufacturer/manufacturer.model';
@@ -16,62 +17,83 @@ import { ProductService } from 'src/app/_services/products/products.service';
 })
 export class AddProductComponent implements OnInit {
 
-  public txtName = "";
-  public txtPaxCount = "";
-  public txtSellingPrice = "";
-  public txtBuyingPrice = "";
-  public txtDescription = "";
-  public txtGenericId = "";
+  // public txtName = "";
+  // public txtPaxCount = "";
+  // public txtSellingPrice = "";
+  // public txtBuyingPrice = "";
+  // public txtDescription = "";
+  // public txtGenericId = "";
 
+  @Input() showMeAction: any;
   @Input() text: string;
-
+  @Output() someEvent = new EventEmitter();
   selectedManufacturer: Manufacturer;
   manufacturerList: Manufacturer[];
 
   selectedGenericName: Generic;
   genericNameList: Generic[];
+  newProductModel: Product;
 
   constructor(
     private manufacturerService: ManufacturerService,
-    private productService: ProductService
+    private productService: ProductService,
+    private toastr: ToastrService,
 
   ) { }
 
   ngOnInit(): void {
+    this.initializeNewProductData();
+    this.getAllManufacturer();
+    this.getAllGenericName();
+  }
+
+  initializeNewProductData() {
+    this.newProductModel = new Product();
+  }
+  getAllGenericName() {
+    this.productService.getAllGenericName().subscribe(data => {
+      console.log(data);
+      this.genericNameList = data;
+    })
+  }
+  getAllManufacturer() {
     this.manufacturerService.getAllManufacturer().subscribe(data => {
       console.log(data);
 
       this.manufacturerList = data;
-
-      this.productService.getAllGenericName().subscribe(data => {
-        console.log(data);
-        this.genericNameList = data;
-      })
     });
   }
+
   saveRegisterProduct(product: Product) {
-    this.productService.saveProduct(product).subscribe(data => { console.log(data) })
+    this.productService.saveProduct(product).subscribe(data => {
+      console.log(data);
+      this.toastr.success('Product Added Successfully !');
+    })
   }
+
   saveProduct() {
     var product = new Product();
 
-    product.Name = this.txtName;
-    product.PaxCount = this.txtPaxCount;
-    product.SellingPrice = + this.txtSellingPrice;
-    product.BuyingPrice = +this.txtBuyingPrice;
-    product.Description = this.txtDescription;
+    product.Name = this.newProductModel.Name;
+    product.PaxCount = this.newProductModel.PaxCount;
+    product.SellingPrice = + this.newProductModel.SellingPrice;
+    product.BuyingPrice = +this.newProductModel.BuyingPrice;
+    product.Description = this.newProductModel.Description;
 
     product.ManufacturerId = this.selectedManufacturer.ManufacturerId;
     product.GenericId = this.selectedGenericName.Id;
 
     this.saveRegisterProduct(product);
-    this.txtName = '';
-    this.txtPaxCount = '';
-    this.txtSellingPrice = '';
-    this.txtBuyingPrice = '';
-    this.txtDescription = '';
+
     this.selectedGenericName = null;
     this.selectedManufacturer = null;
+    this.initializeNewProductData();
+
+
+  }
+  closeMe() {
+
+    this.showMeAction();
 
 
   }

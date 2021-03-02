@@ -11,7 +11,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ProductListComponent implements OnInit {
   textData: string;
   // private _url:string="http://localhost:58908/api/consumer/allManufacturer"
-  @Input() showMe: boolean = false;
+  showMe: boolean = false;
 
 
   constructor(private http: HttpClient) {

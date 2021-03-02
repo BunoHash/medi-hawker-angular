@@ -7,28 +7,28 @@
         </div> -->
         <div>
             <label>Product Name :</label>
-            <input type="text" pInputText [(ngModel)]="txtName">
+            <input type="text" pInputText [(ngModel)]="newProductModel.Name">
 
         </div>
         <div>
 
             <label>Pax Count :</label>
-            <input type="text" pInputText [(ngModel)]="txtPaxCount">
+            <input type="text" pInputText [(ngModel)]="newProductModel.PaxCount">
         </div>
         <div>
             <label>Selling Price :</label>
-            <input type="text" pInputText [(ngModel)]="txtSellingPrice">
+            <input type="text" pInputText [(ngModel)]="newProductModel.SellingPrice">
         </div>
 
         <div>
             <label>Buying Price :</label>
-            <input type="text" pInputText [(ngModel)]="txtBuyingPrice">
+            <input type="text" pInputText [(ngModel)]="newProductModel.BuyingPrice">
         </div>
 
 
         <div>
             <label>Description:</label>
-            <input type="text" pInputText [(ngModel)]="txtDescription">
+            <input type="text" pInputText [(ngModel)]="newProductModel.Description">
         </div>
 
         <div>
@@ -52,6 +52,9 @@
 
         <div>
             <button pButton type="submit" (click)="saveProduct()" label="Save">
+            </button>
+
+            <button pButton type="button" (click)="someEvent.emit(false)" label="Close">
             </button>
         </div>
 
