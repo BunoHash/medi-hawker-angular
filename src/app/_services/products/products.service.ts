@@ -26,4 +26,5 @@ export class ProductService {
   public saveProduct(product: Product): Observable<boolean> {
     return this.api.post<boolean>(`${this.apiPath}saveProduct`, product);
   }
+
 }

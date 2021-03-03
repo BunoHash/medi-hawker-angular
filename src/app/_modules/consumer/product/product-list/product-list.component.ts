@@ -12,7 +12,7 @@ export class ProductListComponent implements OnInit {
   textData: string;
   // private _url:string="http://localhost:58908/api/consumer/allManufacturer"
   showMe: boolean = false;
-
+  public response: { dbPath: '' };
 
   constructor(private http: HttpClient) {
     this.textData = "";
@@ -26,6 +26,13 @@ export class ProductListComponent implements OnInit {
     this.showMe = !this.showMe
 
 
+  }
+  public uploadFinished = (event) => {
+    this.response = event;
+  }
+
+  public createImgPath = (serverPath: string) => {
+    return `https://localhost:5001/${serverPath}`;
   }
   // getAllManufacturer(){
   //   return this.http.get(this._url);

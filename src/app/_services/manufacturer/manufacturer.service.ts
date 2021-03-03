@@ -13,18 +13,13 @@ export class ManufacturerService {
 
   public apiPath = "manufacturer/"
 
-  constructor(private api: ApiService,
-              ) { }
+  constructor(private api: ApiService) { }
 
+  getAllManufacturer() {
 
-              getAllManufacturer(){
+    return this.api.get<Manufacturer[]>(`${this.apiPath}getAllManufacturer`);
+  }
 
-               return this.api.get<Manufacturer[]>(`${this.apiPath}getAllManufacturer`);
-                
-                
-                    
-                  }
-                
 }
-  
+
 
