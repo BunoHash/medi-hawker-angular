@@ -52,14 +52,6 @@
 
         </div>
 
-        <div>
-            <button pButton type="submit" (click)="saveProduct()" label="Save">
-            </button>
-
-            <button pButton type="button" (click)="someEvent.emit(false)" label="Close">
-            </button>
-        </div>
-
         <div class="row" style="margin-bottom:15px;">
             <div class="col-md-3">
                 <input type="file" #file placeholder="Choose file" (change)="uploadFile(file.files)"
@@ -75,7 +67,15 @@
                 <span class="upload" *ngIf="message">
                     {{message}}
                 </span>
+
             </div>
+        </div>
+        <div>
+            <button pButton type="submit" (click)="saveProduct();getSavedProduct()" label="Save">
+            </button>
+
+            <button pButton type="button" (click)="someEvent.emit(false)" label="Close">
+            </button>
         </div>
 
 

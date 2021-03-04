@@ -20,6 +20,7 @@ export class AddProductComponent implements OnInit {
 
   public progress: number;
   public message: string;
+  public response: { dbPath: '' };
 
   @Output() public onUploadFinished = new EventEmitter();
   @Input() showMeAction: any;
@@ -33,6 +34,7 @@ export class AddProductComponent implements OnInit {
   selectedGenericName: Generic;
   genericNameList: Generic[];
   newProductModel: Product;
+
 
   constructor(
     private manufacturerService: ManufacturerService,
@@ -84,6 +86,9 @@ export class AddProductComponent implements OnInit {
 
     product.ManufacturerId = this.selectedManufacturer.ManufacturerId;
     product.GenericId = this.selectedGenericName.Id;
+
+
+    // product.ImgPath = this.response.dbPath;
 
     this.saveRegisterProduct(product);
 

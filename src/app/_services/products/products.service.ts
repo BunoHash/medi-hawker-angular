@@ -19,12 +19,17 @@ export class ProductService {
 
   constructor(private api: ApiService,
   ) { }
-  getAllGenericName() {
+
+  public getAllGenericName() {
     return this.api.get<Generic[]>(`${this.apiPath}getAllGenericName`);
 
   }
   public saveProduct(product: Product): Observable<boolean> {
     return this.api.post<boolean>(`${this.apiPath}saveProduct`, product);
+  }
+
+  public getSavedProducts() {
+    return this.api.get<Product[]>(`${this.apiPath}getSavedProduct`);
   }
 
 }
