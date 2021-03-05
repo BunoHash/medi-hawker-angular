@@ -32,7 +32,7 @@ export class ProductListComponent implements OnInit {
   }
 
   public createImgPath = (serverPath: string) => {
-    return `https://localhost:5001/${serverPath}`;
+    return `https://localhost:58908/${serverPath}`;
   }
   // getAllManufacturer(){
   //   return this.http.get(this._url);
