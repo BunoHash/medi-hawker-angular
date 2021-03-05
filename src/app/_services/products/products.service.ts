@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap, map } from 'rxjs/operators';
 
 import { ApiService } from '../common/api.service';
@@ -16,6 +16,13 @@ import { Product } from 'src/app/_models/product/product.model';
 export class ProductService {
 
   public apiPath = "product/"
+
+  productSubject = new BehaviorSubject<Product>({} as Product);
+  savedProduct$ = this.productSubject.asObservable();
+
+  changeSavedProduct(status: Product) {
+    this.productSubject.next(status);
+  }
 
   constructor(private api: ApiService,
   ) { }

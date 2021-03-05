@@ -3,6 +3,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { provideRoutes } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { cwd } from 'process';
+import { BehaviorSubject } from 'rxjs';
 import { Generic } from 'src/app/_models/generic/generic.model';
 import { Manufacturer } from 'src/app/_models/manufacturer/manufacturer.model';
 import { Product } from 'src/app/_models/product/product.model';
@@ -34,6 +35,7 @@ export class AddProductComponent implements OnInit {
   selectedGenericName: Generic;
   genericNameList: Generic[];
   newProductModel: Product;
+
 
 
   constructor(
@@ -71,7 +73,10 @@ export class AddProductComponent implements OnInit {
   saveRegisterProduct(product: Product) {
     this.productService.saveProduct(product).subscribe(data => {
       console.log(data);
+
+      this.productService.changeSavedProduct(product);
       this.toastr.success('Product Added Successfully !');
+
     })
   }
 
