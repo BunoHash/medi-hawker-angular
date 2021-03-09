@@ -33,6 +33,9 @@ export class ProductCardComponent implements OnInit {
 
 
   }
+  // public createImgPath = (serverPath: string) => {
+  //   return `https://localhost:58908/${serverPath}`;
+  // }
 
   getSavedProducts() {
     this.productService.getSavedProducts().subscribe(data => {

@@ -21,9 +21,12 @@ export class AddProductComponent implements OnInit {
 
   public progress: number;
   public message: string;
-  public response: { dbPath: '' };
+  // public response: { dbPath: '' };
+
 
   @Output() public onUploadFinished = new EventEmitter();
+
+
   @Input() showMeAction: any;
   @Input() text: string;
   @Output() someEvent = new EventEmitter();
@@ -35,6 +38,7 @@ export class AddProductComponent implements OnInit {
   selectedGenericName: Generic;
   genericNameList: Generic[];
   newProductModel: Product;
+  savedImagePath: string;
 
 
 
@@ -91,9 +95,14 @@ export class AddProductComponent implements OnInit {
 
     product.ManufacturerId = this.selectedManufacturer.ManufacturerId;
     product.GenericId = this.selectedGenericName.Id;
-
+    product.ImgPath = this.savedImagePath;
 
     // product.ImgPath = this.response.dbPath;
+
+    // product.Address = this.newProductModel.Address;
+    // product.ImgPath = this.newProductModel.ImgPath;
+
+    // console.log("ImgPath", product.ImgPath);
 
     this.saveRegisterProduct(product);
 
@@ -115,17 +124,65 @@ export class AddProductComponent implements OnInit {
       return;
     }
 
+    // let fileToUpload = <File>files[0];
+    // const formData = new FormData();
+    // formData.append('file', fileToUpload, fileToUpload.name);
+    // this.http.post('http://localhost:58908/api/Upload/uploadProductImage', formData, { reportProgress: true, observe: 'events' })
+    //   .subscribe(event => {
+    //     // let vv = event['body']
+    //     console.log('Actual Path', event);
+
+    //     if (event.type === HttpEventType.UploadProgress)
+    //       this.progress = Math.round(100 * event.loaded / event.total);
+    //     else if (event.type === HttpEventType.Response) {
+    //       this.message = 'Upload success.';
+    //       let bb: Body = event.body as Body;
+
+    //       console.log('got it', bb.dbPath);
+
+    //       this.onUploadFinished.emit(bb.dbPath);
+    //     }
+    //   });
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
+
     this.http.post('http://localhost:58908/api/Upload/uploadProductImage', formData, { reportProgress: true, observe: 'events' })
       .subscribe(event => {
         if (event.type === HttpEventType.UploadProgress)
           this.progress = Math.round(100 * event.loaded / event.total);
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
-          this.onUploadFinished.emit(event.body);
+          //this.onUploadFinished.emit(event.body);
+
+          this.savedImagePath = (event.body as Body).dbPath;
+          console.log('**  savedImagePath ***', this.savedImagePath);
+
+
         }
       });
   }
+}
+
+
+export interface NormalizedNames {
+}
+
+export interface Headers {
+  normalizedNames: NormalizedNames;
+  lazyUpdate?: any;
+}
+
+export interface Body {
+  dbPath: string;
+}
+
+export interface RootObject {
+  headers: Headers;
+  status: number;
+  statusText: string;
+  url: string;
+  ok: boolean;
+  type: number;
+  body: Body;
 }
