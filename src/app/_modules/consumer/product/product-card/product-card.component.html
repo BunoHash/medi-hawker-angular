@@ -1,7 +1,7 @@
 <div class="store-card">
 
 
-    <p-card class="ui-g-3" *ngFor="let product of savedProductList; let i=index">
+    <p-card class="ui-g-3" *ngFor="let product of savedProductList">
 
 
         <!-- <div class="store-card-icons"> -->
@@ -22,8 +22,11 @@
             <div>
                 <h3>{{product.Name}}</h3>
                 <h5>{{product.Description}}</h5>
+
+
+                <img [src]="product.ImgPath" alt="picture" style="width:60px; height:60px;">
                 <h4>Price : {{product.SellingPrice}} $</h4>
-                <!-- <img [src]="createImgPath(product.ImgPath)" alt="picture" style="width:60px; height:60px;"> -->
+
 
             </div>
         </div>
@@ -31,13 +34,6 @@
     <!-- <div class="store-card-image">
         <img src="assets/layout/images/dashboard/asset-image-espresso.jpg" alt="mirage-layout" />
     </div> -->
-    <!-- <div>
-        <img [src]="createImgPath(product.imgPath)" alt="profile picture" style="width:60px; height:60px;"></td>
-
-
-    </div> -->
-
-
 
 
 

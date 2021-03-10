@@ -5,6 +5,8 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:58908/api/',
+  imageURL: "http://localhost/",
+  defaultImage: "http://localhost/StaticFiles/Images/defaultImage.png"
 };
 
 /*
