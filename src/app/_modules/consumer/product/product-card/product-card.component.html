@@ -3,6 +3,16 @@
 
     <p-card class="ui-g-3" *ngFor="let product of savedProductList">
 
+        <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '150px'}">
+            <div>
+                <p>Name:{{product.Name}}</p>
+                <p>Price : {{product.SellingPrice}} $</p>
+                <p>{{product.PaxCount}}</p>
+            </div>
+
+            <button pButton type="button">add To cart</button>
+
+        </p-overlayPanel>
 
         <!-- <div class="store-card-icons"> -->
         <div>
@@ -30,6 +40,8 @@
 
             </div>
         </div>
+
+        <p-button [label]="selectedProduct ? selectedProduct.name : 'Details'" (click)="op.toggle($event)"></p-button>
     </p-card>
     <!-- <div class="store-card-image">
         <img src="assets/layout/images/dashboard/asset-image-espresso.jpg" alt="mirage-layout" />
