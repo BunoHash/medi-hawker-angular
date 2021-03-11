@@ -26,19 +26,7 @@ export class ProductCardComponent implements OnInit {
     this.rootPath = environment.imageURL;
     this.lastSavedProduct$ = this.productService.savedProduct$;
     this.lastSavedProduct();
-    // this.lastSavedProduct$.subscribe(data => {
 
-    //   console.log('From Product List product->', data);
-    //   if (this.savedProductList) {
-
-    //     if (data) {
-    //       data.ImgPath = this.rootPath + data.ImgPath;
-    //     }
-    //     this.savedProductList.splice(0, 0, data);
-    //   }
-
-
-    // });
     this.getSavedProducts();
 
 

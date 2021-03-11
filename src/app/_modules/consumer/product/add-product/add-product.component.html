@@ -6,51 +6,94 @@
 
         </div> -->
 
-        <div>
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <label>Product Name :</label>
+            </div>
 
-            <label>Product Name :</label>
-            <input type="text" pInputText [(ngModel)]="newProductModel.Name">
+            <div class="ui-md-8">
+                <input type="text" pInputText [(ngModel)]="newProductModel.Name">
 
-        </div>
-        <div>
-
-            <label>Pax Count :</label>
-            <input type="text" pInputText [(ngModel)]="newProductModel.PaxCount">
-        </div>
-        <div>
-            <label>Selling Price :</label>
-            <input type="text" pInputText [(ngModel)]="newProductModel.SellingPrice">
-        </div>
-
-        <div>
-            <label>Buying Price :</label>
-            <input type="text" pInputText [(ngModel)]="newProductModel.BuyingPrice">
-        </div>
-
-
-        <div>
-            <label>Description:</label>
-            <input type="text" pInputText [(ngModel)]="newProductModel.Description">
-        </div>
-
-        <div>
-            <label class="p-col-12 p-md-4">Manufacturer</label>
-
-            <p-dropdown [options]="manufacturerList" [(ngModel)]="selectedManufacturer"
-                placeholder="Select a Manufacturer" optionLabel="Name">
-
-            </p-dropdown>
-
+            </div>
 
         </div>
 
-        <div>
-            <label class="p-col-12 p-md-4">Generic Name</label>
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <label>Pax Count :</label>
+            </div>
 
-            <p-dropdown [options]="genericNameList" [(ngModel)]="selectedGenericName" placeholder="Select a GenericName"
-                optionLabel="Name"></p-dropdown>
+            <div class="ui-md-8">
+                <input type="text" pInputText [(ngModel)]="newProductModel.PaxCount">
+            </div>
 
         </div>
+
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <label>Selling Price :</label>
+            </div>
+
+            <div class="ui-md-8">
+                <input type="text" pInputText [(ngModel)]="newProductModel.SellingPrice">
+            </div>
+
+        </div>
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <label>Buying Price :</label>
+            </div>
+
+            <div class="ui-md-8">
+                <input type="text" pInputText [(ngModel)]="newProductModel.BuyingPrice">
+            </div>
+
+        </div>
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <label>Description:</label>
+            </div>
+
+            <div class="ui-md-8">
+                <input type="text" pInputText [(ngModel)]="newProductModel.Description">
+            </div>
+
+        </div>
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <label class="p-col-12 p-md-4">Manufacturer:</label>
+            </div>
+
+            <div class="ui-md-8">
+                <p-dropdown [options]="manufacturerList" [(ngModel)]="selectedManufacturer"
+                    placeholder="Select a Manufacturer" optionLabel="Name">
+
+                </p-dropdown>
+            </div>
+
+        </div>
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <label class="p-col-12 p-md-4">Generic Name:</label>
+            </div>
+
+            <div class="ui-md-8">
+                <p-dropdown [options]="genericNameList" [(ngModel)]="selectedGenericName"
+                    placeholder="Select a GenericName" optionLabel="Name"></p-dropdown>
+            </div>
+
+        </div>
+        <div class="ui-g">
+            <div class="ui-md-4">
+
+            </div>
+
+            <div class="ui-md-8">
+
+            </div>
+
+        </div>
+
 
         <div class="row" style="margin-bottom:15px;">
             <div class="col-md-3">
@@ -71,13 +114,18 @@
             </div>
 
         </div>
-        <div>
-            <button pButton type="submit" (click)="saveProduct()" label="Save">
-            </button>
+        <div class="ui-g">
+            <div class="ui-md-4">
+                <button pButton type="submit" (click)="saveProduct()" label="Save">
+                </button>
 
-            <button pButton type="button" (click)="someEvent.emit(false)" label="Close">
-            </button>
+            </div>
+            <div class="ui-md-8">
+                <button pButton type="button" (click)="someEvent.emit(false)" label="Close">
+                </button>
+            </div>
         </div>
+
 
 
     </div>

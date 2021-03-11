@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit {
 
   public progress: number;
   public message: string;
-  // public response: { dbPath: '' };
+
 
 
   @Output() public onUploadFinished = new EventEmitter();
@@ -124,25 +124,7 @@ export class AddProductComponent implements OnInit {
       return;
     }
 
-    // let fileToUpload = <File>files[0];
-    // const formData = new FormData();
-    // formData.append('file', fileToUpload, fileToUpload.name);
-    // this.http.post('http://localhost:58908/api/Upload/uploadProductImage', formData, { reportProgress: true, observe: 'events' })
-    //   .subscribe(event => {
-    //     // let vv = event['body']
-    //     console.log('Actual Path', event);
 
-    //     if (event.type === HttpEventType.UploadProgress)
-    //       this.progress = Math.round(100 * event.loaded / event.total);
-    //     else if (event.type === HttpEventType.Response) {
-    //       this.message = 'Upload success.';
-    //       let bb: Body = event.body as Body;
-
-    //       console.log('got it', bb.dbPath);
-
-    //       this.onUploadFinished.emit(bb.dbPath);
-    //     }
-    //   });
     let fileToUpload = <File>files[0];
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
@@ -153,6 +135,7 @@ export class AddProductComponent implements OnInit {
           this.progress = Math.round(100 * event.loaded / event.total);
         else if (event.type === HttpEventType.Response) {
           this.message = 'Upload success.';
+
           //this.onUploadFinished.emit(event.body);
 
           this.savedImagePath = (event.body as Body).dbPath;

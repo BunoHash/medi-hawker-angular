@@ -39,24 +39,6 @@ export class ProductListComponent implements OnInit {
     console.log("from UplaodFinished", event)
   }
 
-  // public createImgPath = (serverPath: string) => {
-  //   return `https://localhost:58908/${serverPath}`;
-  // }
-  // savedImagePath = '';
-  // public onCreate() {
-  //   var product = new Product();
-  //   product.ImgPath = this.response.dbPath;
-  //   console.log("Oncreate", this.response.dbPath);
 
-  //   this.productService.saveProduct(product).subscribe(data => {
-  //     console.log(data);
-
-
-  //   })
-
-
-
-
-  // }
 
 }

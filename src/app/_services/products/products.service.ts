@@ -20,9 +20,6 @@ export class ProductService {
   productSubject = new BehaviorSubject<Product>({} as Product);
   savedProduct$ = this.productSubject.asObservable();
 
-  changeSavedProduct(status: Product) {
-    this.productSubject.next(status);
-  }
 
   constructor(private api: ApiService,
   ) { }
@@ -37,6 +34,10 @@ export class ProductService {
 
   public getSavedProducts() {
     return this.api.get<Product[]>(`${this.apiPath}getSavedProduct`);
+  }
+
+  changeSavedProduct(status: Product) {
+    this.productSubject.next(status);
   }
 
 }
