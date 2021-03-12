@@ -7,8 +7,8 @@
                     <h1>Products</h1>
                 </div>
                 <div class="p-col-6 store-info">
-                    <button title="Add Product" class="info-item add" (click)="AddItem()"><i
-                            class="pi pi-plus"></i></button>
+                    <button title="Add Product" class="info-item add" (click)="AddItem()"
+                        (click)="selectedProduct=null"><i class="pi pi-plus"></i></button>
                     <!-- <div class="info-item library">
                         <input pInput [(ngModel)]="textData">
                     </div> -->
@@ -19,7 +19,14 @@
                 <div class="store-cards">
 
                     <div class="ui-g">
-                        <con-product-card></con-product-card>
+                        <p-card class="ui-g-3" *ngFor="let product of savedProductList">
+
+
+
+                            <con-product-card [product]="product" (click)="selectedProduct=product;showMe=false">
+                            </con-product-card>
+                        </p-card>
+
                     </div>
                 </div>
             </div>
@@ -30,6 +37,11 @@
         <con-add-product *ngIf="showMe" (someEvent)="AddItem($event);" (onUploadFinished)="uploadFinished($event);"
             [text]="textData">
         </con-add-product>
+
+        <product-detail *ngIf="selectedProduct" [selectedProduct]="selectedProduct"
+            (someEvent)="DetailsButton($event);">
+        </product-detail>
+
     </div>
 
 

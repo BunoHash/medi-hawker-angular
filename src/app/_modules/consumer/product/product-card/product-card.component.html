@@ -1,60 +1,27 @@
 <div class="store-card">
 
 
-    <p-card class="ui-g-3" *ngFor="let product of savedProductList">
 
-        <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '150px'}">
-            <div>
-                <p>Name:{{product.Name}}</p>
-                <p>Price : {{product.SellingPrice}} $</p>
-                <p>{{product.PaxCount}}</p>
-            </div>
-
-            <div class="ui-g">
-                <button class="mr-5" pButton icon="pi pi-plus"></button>
-                <button class="ui-md-8" pButton icon="pi pi-minus"></button>
-            </div>
-            <div>
-                <button pButton class="mt-5">Add To cart</button>
-            </div>
-
-
-
-
-        </p-overlayPanel>
-
-        <!-- <div class="store-card-icons"> -->
-        <div>
-            <div class="p-grid p-nogutter">
-                <!-- <div class="p-col-4">
-                    <i class="pi pi-heart"></i>
-                </div>
-                <div class="p-col-4">
-                    <i class="pi pi-pencil"></i>
-                </div>
-                <div class="p-col-4">
-                    <i class="pi pi-trash"></i>
-                </div> -->
-
-            </div>
-
-            <div>
-                <h3>{{product.Name}}</h3>
-                <h5>{{product.Description}}</h5>
-
-
-                <img [src]="product.ImgPath" alt="picture" style="width:60px; height:60px;">
-                <h4>Price : {{product.SellingPrice}} $</h4>
-
-
-            </div>
-        </div>
-
-        <p-button [label]="selectedProduct ? selectedProduct.name : 'Details'" (click)="op.toggle($event)"></p-button>
-    </p-card>
     <!-- <div class="store-card-image">
         <img src="assets/layout/images/dashboard/asset-image-espresso.jpg" alt="mirage-layout" />
     </div> -->
+
+    <div>
+        <div class="p-grid p-nogutter">
+
+        </div>
+
+        <div>
+            <h3>{{product.Name}}</h3>
+            <h5>{{product.Description}}</h5>
+
+
+            <img [src]="product.ImgPath" alt="picture" style="width:60px; height:60px;">
+            <h4>Price : {{product.SellingPrice}} $</h4>
+
+
+        </div>
+    </div>
 
 
 

@@ -41,7 +41,7 @@ export class AppLoginComponent implements OnInit {
 
     this.authService.login(obj).subscribe(data => {
       console.log(data);
-      if (data) {
+      if (data && data != "Invalid User") {
         localStorage.setItem('token', data);
         this.alertifyService.success(LoginMessageEN.LOGIN_SUCCESS_EN);
 

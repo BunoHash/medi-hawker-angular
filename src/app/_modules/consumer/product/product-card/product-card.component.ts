@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/_models/product/product.model';
+import { CartService } from 'src/app/_services/cart/cart.service';
 import { ProductService } from 'src/app/_services/products/products.service';
 import { environment } from 'src/environments/environment';
 
@@ -11,66 +12,85 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductCardComponent implements OnInit {
 
-  savedProductList: Product[] = [];
-  lastSavedProduct$: Observable<Product>;
+  // savedProductList: Product[] = [];
+  // lastSavedProduct$: Observable<Product>;
   rootPath = ''
+  showDetailsButton: boolean = false;
+
+  @Input() showButtonDetails = new EventEmitter();
+  @Input() product: Product;
 
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
 
   ) { }
 
   ngOnInit(): void {
 
-    this.rootPath = environment.imageURL;
-    this.lastSavedProduct$ = this.productService.savedProduct$;
-    this.lastSavedProduct();
+    // this.rootPath = environment.imageURL;
+    // this.lastSavedProduct$ = this.productService.savedProduct$;
+    // this.lastSavedProduct();
 
-    this.getSavedProducts();
+    // this.getProductList();
 
 
   }
 
-  lastSavedProduct() {
-    this.lastSavedProduct$.subscribe(data => {
+  // lastSavedProduct() {
+  //   this.lastSavedProduct$.subscribe(data => {
 
-      console.log('From Product List product->', data);
-      if (this.savedProductList) {
+  //     console.log('From Product List product->', data);
+  //     if (this.savedProductList) {
 
-        if (data.ImgPath == null || data.ImgPath == undefined) {
+  //       if (data.ImgPath == null || data.ImgPath == undefined) {
 
-          data.ImgPath = environment.defaultImage;
+  //         data.ImgPath = environment.defaultImage;
 
-        }
-        else {
-          data.ImgPath = this.rootPath + data.ImgPath;
-        }
-        this.savedProductList.splice(0, 0, data);
-      }
+  //       }
+  //       else {
+  //         data.ImgPath = this.rootPath + data.ImgPath;
+  //       }
+  //       this.savedProductList.splice(0, 0, data);
+  //     }
 
 
-    });
+  //   });
+  // }
+
+  // getProductList() {
+  //   this.productService.getSavedProducts().subscribe(data => {
+  //     console.log(data);
+  //     this.savedProductList = data;
+  //     this.savedProductList.map(x => {
+
+  //       if (x.ImgPath == null || x.ImgPath == undefined) {
+  //         x.ImgPath = environment.defaultImage;
+  //       }
+
+  //       else {
+  //         x.ImgPath = this.rootPath + x.ImgPath
+  //       }
+  //       return x;
+  //     });
+
+
+  //   })
+  // }
+  showProductDetails(selectedProduct: Product) {
+
+    this.showDetailsButton = !this.showDetailsButton
+    console.log("details button clicked");
+
+
+
   }
 
-  getSavedProducts() {
-    this.productService.getSavedProducts().subscribe(data => {
-      console.log(data);
-      this.savedProductList = data;
-      this.savedProductList.map(x => {
 
-        if (x.ImgPath == null || x.ImgPath == undefined) {
-          x.ImgPath = environment.defaultImage;
-        }
+  AddToCart() {
+    this.cartService.AddToCart
 
-        else {
-          x.ImgPath = this.rootPath + x.ImgPath
-        }
-        return x;
-      });
-
-
-    })
   }
 
 }

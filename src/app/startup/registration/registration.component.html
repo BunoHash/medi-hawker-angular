@@ -13,6 +13,7 @@
                 <h1>Sign Up</h1>
                 <!-- {{consumerForm.value | json}} -->
                 <!-- <p>Welcome, please use the form to sign-in MediHawker network</p> -->
+<<<<<<< Updated upstream
                 <form class="forms" [formGroup]="consumerForm">
 
                     <div class="p-grid">
@@ -22,6 +23,13 @@
                                 <label for="FirstName">First Name</label>
                                 <input type="text" pInputText placeholder="First Name" [(ngModel)]="txtFirstName"
                                     type="text" formControlName="FirstName">
+=======
+                <form class="forms" [formGroup]="ConsumerForm">
+                    <div class="login-input-wrapper">
+                        <label for="username">Username</label>
+                        <input type="text" pInputText placeholder="User Name" [(ngModel)]="txtUserName" type="text"
+                            formControlName="UserName" required>
+>>>>>>> Stashed changes
 
 
                             </div>
