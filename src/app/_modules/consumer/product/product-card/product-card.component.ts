@@ -23,7 +23,7 @@ export class ProductCardComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private cartService: CartService
+
 
   ) { }
 
@@ -88,9 +88,6 @@ export class ProductCardComponent implements OnInit {
   }
 
 
-  AddToCart() {
-    this.cartService.AddToCart
 
-  }
 
 }

@@ -1,15 +1,29 @@
-<div>
-    <div class="p-grid p-nogutter">
+<div class="card store-items">
 
-    </div>
-
-    <div>
-        <h3>{{selectedProduct.Name}}</h3>
-        <h5>{{selectedProduct.Description}}</h5>
+    <div class="store-cards-container">
 
 
-        <img [src]="selectedProduct.ImgPath" alt="picture" style="width:60px; height:60px;">
-        <h4>Price : {{selectedProduct.SellingPrice}} $</h4>
+        <div class="p-grid p-nogutter">
+
+        </div>
+
+        <div>
+            <h3>{{selectedProduct.Name}}</h3>
+            <h5>{{selectedProduct.Description}}</h5>
+
+
+            <img [src]="selectedProduct.ImgPath" alt="picture" style="width:60px; height:60px;">
+            <h4>Price : {{selectedProduct.SellingPrice}} $</h4>
+
+
+
+        </div>
+        <div>
+            <button pButton class="mr-5" (click)="AddToCart()">Add to Cart</button>
+            <button pButton class="mr-5"><i class="pi pi-plus"></i></button>
+            <button pButton class="ml-5"><i class="pi pi-minus"></i></button>
+        </div>
+
 
 
     </div>

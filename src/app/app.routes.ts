@@ -18,6 +18,7 @@ import { AppErrorComponent } from './pages/app.error/app.error.component';
 import { AppAccessdeniedComponent } from './pages/app.accessdenied/app.accessdenied.component';
 import { AppLoginComponent } from './startup/app.login/app.login.component';
 import { ConsumerRegistrationComponent } from './startup/registration/registration.component';
+import { AuthGuardService } from './_services/auth-guard/auth-guard.service';
 
 
 
@@ -31,6 +32,7 @@ export const routes: Routes = [
     {
         path: 'consumer',
         loadChildren: () => import('./_modules/consumer/consumer.module').then(mod => mod.ConsumerModule),
+        canActivate: [AuthGuardService]
     },
 
     //{path:'transport-dashboard', loadChildren: './app/_modules/transport/transport.module#TransportModule'},

@@ -112,6 +112,7 @@ import { ConsumerRegistrationComponent } from './startup/registration/registrati
 import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { AuthGuardService } from './_services/auth-guard/auth-guard.service';
 
 
 export function getAccessToken(): string {
@@ -213,7 +214,7 @@ export const jwtConfig = {
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        CarService, CountryService, EventService, NodeService, BreadcrumbService, MenuService
+        CarService, CountryService, EventService, NodeService, BreadcrumbService, MenuService, AuthGuardService
     ],
     bootstrap: [AppComponent]
 })
