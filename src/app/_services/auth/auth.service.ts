@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
 import { LoginModel } from 'src/app/_models/auth/login.model';
+import { LoginSuccessModel } from 'src/app/_models/LoginSuccessModel/loginSuccessModel.model';
 import { ApiService } from '../common/api.service';
 
 @Injectable({
@@ -16,10 +17,10 @@ export class AuthService {
 
   login(model: LoginModel) {
 
-    return this.api.post<string>(`${this.apiPATH}login`, model);
+    return this.api.post<LoginSuccessModel>(`${this.apiPATH}login`, model);
   }
   getAccessToken(): string {
-    return localStorage.getItem('token');
+    return 'Bearer ' + localStorage.getItem('token');
   }
 
   isTokenExpired() {
@@ -31,5 +32,9 @@ export class AuthService {
 
     return token['Username'];
   }
+  // LoginConsumer(LoginSuccess: LoginSuccessModel) {
+  //   return this.api.post<LoginSuccessModel>(`${this.apiPATH}login`, LoginSuccess)
+  // }
+
 
 }

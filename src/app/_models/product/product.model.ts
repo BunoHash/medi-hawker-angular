@@ -3,7 +3,7 @@ export class Product {
   public ProductId: number;
   public Name: string;
   public GenericName: string;
-  public PaxCount: string;
+  public PaxCount: number;
   public ManufacturerId: number;
   public Dose?: number;
   public UnitPrice?: number;

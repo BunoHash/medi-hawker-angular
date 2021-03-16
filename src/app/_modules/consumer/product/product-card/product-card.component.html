@@ -15,8 +15,10 @@
             <h3>{{product.Name}}</h3>
             <h5>{{product.Description}}</h5>
 
+            <div class="ml-5">
+                <img [src]="product.ImgPath" alt="picture" style="width:130px; height:80px;">
+            </div>
 
-            <img [src]="product.ImgPath" alt="picture" style="width:60px; height:60px;">
             <h4>Price : {{product.SellingPrice}} $</h4>
 
 

@@ -12,7 +12,7 @@
             <h5>{{selectedProduct.Description}}</h5>
 
 
-            <img [src]="selectedProduct.ImgPath" alt="picture" style="width:60px; height:60px;">
+            <img [src]="selectedProduct.ImgPath" alt="picture" style="width:130px; height:80px;">
             <h4>Price : {{selectedProduct.SellingPrice}} $</h4>
 
 
@@ -20,8 +20,10 @@
         </div>
         <div>
             <button pButton class="mr-5" (click)="AddToCart()">Add to Cart</button>
-            <button pButton class="mr-5"><i class="pi pi-plus"></i></button>
-            <button pButton class="ml-5"><i class="pi pi-minus"></i></button>
+            <button pButton class="mr-5" (click)="minus()"><i class="pi pi-minus"></i></button>
+            <input type="number" [(value)]="quantity">
+            <button pButton class="ml-5" (click)="plus()"><i class="pi pi-plus"></i></button>
+
         </div>
 
 
