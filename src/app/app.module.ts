@@ -113,6 +113,7 @@ import { CommonModule } from '@angular/common';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AuthGuardService } from './_services/auth-guard/auth-guard.service';
+import { CartComponent } from './_modules/consumer/cart/cart.component';
 
 
 export function getAccessToken(): string {
@@ -209,6 +210,7 @@ export const jwtConfig = {
         AppComponent,
         AppLoginComponent,
         ConsumerRegistrationComponent,
+        CartComponent,
 
 
     ],

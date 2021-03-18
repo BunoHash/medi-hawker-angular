@@ -1,5 +1,5 @@
+<!-- <div class="card store-items" *ngIf="showMe"> -->
 <div class="card store-items">
-
     <div class="store-cards-container">
 
 
@@ -14,6 +14,7 @@
 
             <img [src]="selectedProduct.ImgPath" alt="picture" style="width:130px; height:80px;">
             <h4>Price : {{selectedProduct.SellingPrice}} $</h4>
+            <h4>Total Price: {{totalPrice}} $ </h4>
 
 
 
@@ -25,6 +26,9 @@
             <button pButton class="ml-5" (click)="plus()"><i class="pi pi-plus"></i></button>
 
         </div>
+        <!-- <div>
+            <button pButton class="mt-5" (click)="closeDiv()"> Close </button>
+        </div> -->
 
 
 

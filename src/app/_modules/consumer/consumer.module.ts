@@ -39,6 +39,7 @@ import { ProductDetailComponent } from './product/product-detail/product-detail.
 import { AddProductComponent } from './product/add-product/add-product.component';
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
+import { AuthService } from 'src/app/_services/auth/auth.service';
 
 
 
@@ -134,7 +135,7 @@ import { ProductListComponent } from './product/product-list/product-list.compon
     ProductDetailComponent,
     AddProductComponent,
     ProductCardComponent],
-  providers: [CarService, BreadcrumbService, EventService],
+  providers: [CarService, BreadcrumbService, EventService, AuthService],
   bootstrap: [ConsumerShellComponent]
 })
 export class ConsumerModule {

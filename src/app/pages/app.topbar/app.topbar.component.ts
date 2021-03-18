@@ -1,8 +1,11 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { CartDetails } from 'src/app/_models/cartDetails/cartDetails.model';
 import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell/consumer-shell.component';
+import { AuthService } from 'src/app/_services/auth/auth.service';
+import { CartService } from 'src/app/_services/cart/cart.service';
 
 @Component({
-    selector: 'app-topbar',
+	selector: 'app-topbar',
 	template: `
 	
         <div class="layout-topbar">
@@ -102,7 +105,8 @@ import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell
 						</ul>
 					</div>
                 </div>
-                <div class="layout-topbar-right fadeInDown">
+               
+								<div class="layout-topbar-right fadeInDown">
 					<ul class="layout-topbar-actions">
 						<li #search class="search-item topbar-item" [ngClass]="{'active-topmenuitem': app.activeTopbarItem === search}">
 							<a href="#" class="topbar-search-mobile-button" (click)="app.onTopbarItemClick($event,search)">
@@ -175,72 +179,44 @@ import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell
 							</ul>
 						</li>
 
-						<li #gift class="topbar-item" [ngClass]="{'active-topmenuitem': app.activeTopbarItem === gift}">
-							<a href="#" (click)="app.onTopbarItemClick($event,gift)">
-								<i class="topbar-icon pi pi-envelope"></i>
+
+
+
+						<li  #gift class="topbar-item" [ngClass]="{'active-topmenuitem': app.activeTopbarItem === gift}">
+							<a href="#" (click)="app.onTopbarItemClick($event,gift);	getcartDetails()">
+								<i class="topbar-icon pi pi-shopping-cart"></i>
 							</a>
 							<ul class="fadeInDown">
 								<li class="layout-submenu-header">
-									<h1>Deals</h1>
+									<h1>Cart Item</h1>
 								</li>
 
-								<li class="deals">
+								<li>
 									<ul>
-										<li>
-											<img src="assets/layout/images/topbar/deal-icon-sapphire.png" alt="mirage-layout" width="35" />
+										<li *ngFor="let cartDetail of cartdetails"    >
+											
 											<div class="menu-text">
-												<p>Sapphire</p>
-												<span>Angular</span>
+												<h4>Name :{{cartDetail.Name}}</h4>
+												<h5>Total Product :{{cartDetail.ProductCount}}</h5>
+												<h5>SellingPrice :{{cartDetail.SellingPrice}}</h5>
+												<h5>TotalPrice :{{cartDetail.TotalPrice}}</h5>
+
+												
+												
 											</div>
-											<i class="pi pi-angle-right"></i>
+											
 										</li>
-										<li>
-											<img src="assets/layout/images/topbar/deal-icon-roma.png" alt="mirage-layout" width="35" />
-											<div class="menu-text">
-												<p>Roma</p>
-												<span>Minimalism</span>
-											</div>
-											<i class="pi pi-angle-right"></i>
-										</li>
-										<li>
-											<img src="assets/layout/images/topbar/deal-icon-babylon.png" alt="mirage-layout" width="35" />
-											<div class="menu-text">
-												<p>Babylon</p>
-												<span>Powerful</span>
-											</div>
-											<i class="pi pi-angle-right"></i>
-										</li>
+										
+										
 									</ul>
-									<ul>
-										<li>
-											<img src="assets/layout/images/topbar/deal-icon-harmony.png" alt="mirage-layout" width="35" />
-											<div class="menu-text">
-												<p>Harmony</p>
-												<span>USWDS</span>
-											</div>
-											<i class="pi pi-angle-right"></i>
-										</li>
-										<li>
-											<img src="assets/layout/images/topbar/deal-icon-prestige.png" alt="mirage-layout" width="35" />
-											<div class="menu-text">
-												<p>Prestige</p>
-												<span>Elegancy</span>
-											</div>
-											<i class="pi pi-angle-right"></i>
-										</li>
-										<li>
-											<img src="assets/layout/images/topbar/deal-icon-ultima.png" alt="mirage-layout" width="35" />
-											<div class="menu-text">
-												<p>Ultima</p>
-												<span>Material</span>
-											</div>
-											<i class="pi pi-angle-right"></i>
-										</li>
-									</ul>
+									
 								</li>
 							</ul>
 						</li>
 
+
+
+						
 						<li #profile class="topbar-item profile-item" [ngClass]="{'active-topmenuitem': app.activeTopbarItem === profile}">
 							<a href="#" (click)="app.onTopbarItemClick($event,profile)">
                             <span class="profile-image-wrapper">
@@ -251,6 +227,7 @@ import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell
                                 <span>Design</span>
                             </span>
 							</a>
+
 							<ul class="profile-item-submenu fadeInDown">
 								<li class="profile-submenu-header">
 									<div class="performance">
@@ -362,13 +339,33 @@ import { ConsumerShellComponent } from 'src/app/_modules/consumer/consumer-shell
 })
 export class AppTopBarComponent {
 
-    activeItem: number;
+	activeItem: number;
+	cartdetails: CartDetails[];
 
-    constructor(public app: ConsumerShellComponent) {}
+	constructor(public app: ConsumerShellComponent,
+		private cartService: CartService,
+		private authService: AuthService) { }
 
-    mobileMegaMenuItemClick(index) {
-        this.app.megaMenuMobileClick = true;
-        this.activeItem = this.activeItem === index ? null : index;
-    }
+	mobileMegaMenuItemClick(index) {
+		this.app.megaMenuMobileClick = true;
+		this.activeItem = this.activeItem === index ? null : index;
+	}
+	ngOnInit(): void {
+
+	}
+	getcartDetails() {
+		console.log("From Get CartDetails", this.authService.getUserInfo().ConsumerId);
+		let consumerId = this.authService.getUserInfo().ConsumerId;
+
+
+		this.cartService.GetCartDetails(consumerId).subscribe(data => {
+			console.log("From cartdata details", data);
+			this.cartdetails = data as CartDetails[];
+			console.log("From cart details", this.cartdetails);
+
+		})
+	}
 
 }
+
+
