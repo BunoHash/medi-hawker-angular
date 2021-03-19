@@ -23,11 +23,14 @@ import { AuthGuardService } from './_services/auth-guard/auth-guard.service';
 
 
 
+
 export const routes: Routes = [
 
 
     { path: 'login', component: AppLoginComponent },
     { path: 'register', component: ConsumerRegistrationComponent },
+
+
     //{path:'consumer-dashboard', loadChildren: './app/_modules/consumer/consumer.module#ConsumerModule'},
     {
         path: 'consumer',

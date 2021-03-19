@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div>
+    <div *ngFor="let cartDetail of cartdetails">
+
+        <div>
+            <h4>Name :{{cartDetail.Name}}</h4>
+            <h5>Total Product: $ {{cartDetail.SellingPrice}} * {{cartDetail.ProductCount}}</h5>
+            <h5>Total Price :{{cartDetail.TotalPrice}}</h5>
+            <h5>__________________________</h5>
+
+
+
+        </div>
+
+
+    </div>
+    <div>
+        <button pButton>Check Out</button>
+        <button pButton class="ml-5" (click)="plus()"><i class="pi pi-plus"></i></button>
+        <h5>{{cartDetail.ProductCount}}</h5>
+
+    </div>
+</div>

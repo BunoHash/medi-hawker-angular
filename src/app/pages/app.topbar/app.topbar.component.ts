@@ -183,7 +183,7 @@ import { CartService } from 'src/app/_services/cart/cart.service';
 
 
 						<li  #gift class="topbar-item" [ngClass]="{'active-topmenuitem': app.activeTopbarItem === gift}">
-							<a href="#" (click)="app.onTopbarItemClick($event,gift);	getcartDetails()">
+							<a href="#/consumer/cart">
 								<i class="topbar-icon pi pi-shopping-cart"></i>
 							</a>
 							<ul class="fadeInDown">
@@ -193,19 +193,7 @@ import { CartService } from 'src/app/_services/cart/cart.service';
 
 								<li>
 									<ul>
-										<li *ngFor="let cartDetail of cartdetails"    >
-											
-											<div class="menu-text">
-												<h4>Name :{{cartDetail.Name}}</h4>
-												<h5>Total Product :{{cartDetail.ProductCount}}</h5>
-												<h5>SellingPrice :{{cartDetail.SellingPrice}}</h5>
-												<h5>TotalPrice :{{cartDetail.TotalPrice}}</h5>
-
-												
-												
-											</div>
-											
-										</li>
+										
 										
 										
 									</ul>
@@ -340,11 +328,10 @@ import { CartService } from 'src/app/_services/cart/cart.service';
 export class AppTopBarComponent {
 
 	activeItem: number;
-	cartdetails: CartDetails[];
+
 
 	constructor(public app: ConsumerShellComponent,
-		private cartService: CartService,
-		private authService: AuthService) { }
+	) { }
 
 	mobileMegaMenuItemClick(index) {
 		this.app.megaMenuMobileClick = true;
@@ -353,18 +340,7 @@ export class AppTopBarComponent {
 	ngOnInit(): void {
 
 	}
-	getcartDetails() {
-		console.log("From Get CartDetails", this.authService.getUserInfo().ConsumerId);
-		let consumerId = this.authService.getUserInfo().ConsumerId;
 
-
-		this.cartService.GetCartDetails(consumerId).subscribe(data => {
-			console.log("From cartdata details", data);
-			this.cartdetails = data as CartDetails[];
-			console.log("From cart details", this.cartdetails);
-
-		})
-	}
 
 }
 

@@ -40,6 +40,7 @@ import { AddProductComponent } from './product/add-product/add-product.component
 import { ProductCardComponent } from './product/product-card/product-card.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { AuthService } from 'src/app/_services/auth/auth.service';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -134,7 +135,8 @@ import { AuthService } from 'src/app/_services/auth/auth.service';
     ProductListComponent,
     ProductDetailComponent,
     AddProductComponent,
-    ProductCardComponent],
+    ProductCardComponent,
+    CartComponent],
   providers: [CarService, BreadcrumbService, EventService, AuthService],
   bootstrap: [ConsumerShellComponent]
 })
