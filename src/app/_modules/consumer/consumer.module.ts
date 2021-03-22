@@ -41,6 +41,8 @@ import { ProductCardComponent } from './product/product-card/product-card.compon
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { AuthService } from 'src/app/_services/auth/auth.service';
 import { CartComponent } from './cart/cart.component';
+import { OrderComponent } from './order/order.component';
+
 
 
 
@@ -136,7 +138,8 @@ import { CartComponent } from './cart/cart.component';
     ProductDetailComponent,
     AddProductComponent,
     ProductCardComponent,
-    CartComponent],
+    CartComponent,
+    OrderComponent],
   providers: [CarService, BreadcrumbService, EventService, AuthService],
   bootstrap: [ConsumerShellComponent]
 })

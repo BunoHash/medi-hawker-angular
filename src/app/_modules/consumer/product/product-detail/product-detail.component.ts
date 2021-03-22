@@ -20,7 +20,7 @@ export class ProductDetailComponent implements OnInit {
   chosenProduct: Product;
 
   consumer: Consumer;
-  getdata: [];
+
 
 
   quantity: number = 1;
@@ -53,7 +53,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   plus() {
-    if (this.i != 10) {
+    if (this.i != 20) {
       this.i++;
       this.quantity = this.i;
       this.calculateTotalPrice();

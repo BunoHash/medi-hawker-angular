@@ -116,6 +116,7 @@ import { AuthGuardService } from './_services/auth-guard/auth-guard.service';
 
 
 
+
 export function getAccessToken(): string {
     return localStorage.getItem('token');
 }
@@ -210,6 +211,7 @@ export const jwtConfig = {
         AppComponent,
         AppLoginComponent,
         ConsumerRegistrationComponent,
+
 
 
 

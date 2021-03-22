@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { BehaviorSubject, Observable } from "rxjs";
 import { Cart } from "src/app/_models/cart/cart.model";
 import { CartDetails } from "src/app/_models/cartDetails/cartDetails.model";
 import { ApiService } from "../common/api.service";
@@ -11,6 +11,9 @@ import { ApiService } from "../common/api.service";
 export class CartService {
   public apiPath = "cart/"
 
+  cartItemSubject = new BehaviorSubject<CartDetails[]>([]);
+  lastcartItem$ = this.cartItemSubject.asObservable();
+
   constructor(private api: ApiService,
   ) { }
 
@@ -20,5 +23,10 @@ export class CartService {
   public GetCartDetails(consumerId) {
     return this.api.get<CartDetails[]>(`${this.apiPath}getCartDetails/${consumerId}`);
 
+
+  }
+
+  cartSavedProduct(status: CartDetails[]) {
+    this.cartItemSubject.next(status);
   }
 }

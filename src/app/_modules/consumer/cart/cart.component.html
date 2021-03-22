@@ -1,11 +1,14 @@
-<div>
+<div id="left">
     <div *ngFor="let cartDetail of cartdetails">
 
         <div>
             <h4>Name :{{cartDetail.Name}}</h4>
             <h5>Total Product: $ {{cartDetail.SellingPrice}} * {{cartDetail.ProductCount}}</h5>
-            <h5>Total Price :{{cartDetail.TotalPrice}}</h5>
-            <h5>__________________________</h5>
+            <h5>Total Price :{{cartDetail.ProductCount * cartDetail.SellingPrice}}</h5>
+            <button pButton class="mr-5" (click)="minus(cartDetail)"><i class="pi pi-minus"></i></button>
+            <input type="number" [(value)]="cartDetail.ProductCount">
+            <button pButton class="ml-5" (click)="plus(cartDetail)"><i class="pi pi-plus"></i></button>
+            <hr>
 
 
 
@@ -14,9 +17,11 @@
 
     </div>
     <div>
-        <button pButton>Check Out</button>
-        <button pButton class="ml-5" (click)="plus()"><i class="pi pi-plus"></i></button>
-        <h5>{{cartDetail.ProductCount}}</h5>
+
+        <button pButton [routerLink]="['/consumer/order']" (click)="checkOut()">Proceed To Check Out</button>
+
+
 
     </div>
+
 </div>
