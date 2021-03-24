@@ -62,8 +62,15 @@ export class CartComponent implements OnInit {
   checkOut() {
     console.log('checkOut', this.cartdetails);
 
-
+    this.cartdetails.find(x => {
+      x.TotalPrice = x.ProductCount * x.SellingPrice;
+    })
     this.cartService.cartSavedProduct(this.cartdetails);
+    console.log('checkOut 2', this.cartdetails);
+
+
+
+
 
   }
 

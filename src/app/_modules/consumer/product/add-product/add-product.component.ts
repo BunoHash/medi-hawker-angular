@@ -97,6 +97,7 @@ export class AddProductComponent implements OnInit {
     product.GenericId = this.selectedGenericName.Id;
     product.ImgPath = this.savedImagePath;
 
+
     // product.ImgPath = this.response.dbPath;
 
     // product.Address = this.newProductModel.Address;

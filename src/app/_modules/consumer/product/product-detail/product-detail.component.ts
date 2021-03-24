@@ -73,7 +73,7 @@ export class ProductDetailComponent implements OnInit {
 
   SaveAddToCart(cart: Cart) {
     this.cartService.AddToCart(cart).subscribe(data => {
-      console.log(data);
+      console.log('SaveAddToCart', data);
 
     })
 
@@ -90,7 +90,7 @@ export class ProductDetailComponent implements OnInit {
     cart.ProductCount = this.quantity;
     cart.ConsumerId = this.selectedConsumerId;
     cart.TotalPrice = this.totalPrice;
-    console.log('total price', this.totalPrice);
+    console.log('ProductId', this.selectedProduct.ProductId);
 
 
     // console.log("getdata", this.selectedConsumerId);
